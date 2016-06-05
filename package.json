@@ -1,0 +1,20 @@
+{
+  "name": "react_native_examples",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "remotedev": "remotedev --hostname=localhost --port=8000"
+  },
+  "dependencies": {
+    "react": "15.0.2",
+    "react-native": "0.26.3",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "remote-redux-devtools": "^0.3.3",
+    "remotedev-server": "^0.1.2"
+  }
+}
