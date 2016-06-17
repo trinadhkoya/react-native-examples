@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 const {
-    View: NavigationView,
+    Transitioner: NavigationTransitioner,
     CardStack: NavigationCardStack,
 } = NavigationExperimental;
 

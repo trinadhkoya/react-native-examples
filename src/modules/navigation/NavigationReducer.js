@@ -17,7 +17,7 @@ import * as ACTIONS from '../../constants/ActionTypes';
 const initialState = {
     index: 0,
     key: 'root',
-    children: [
+    routes: [
         // tab state
         {
             key: CONST.TABS.HOME,

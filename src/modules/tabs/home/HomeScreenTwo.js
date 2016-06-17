@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 
 // first party
+import * as ACTIONS from '../../../constants/ActionTypes';
 import * as STYLES from '../../../constants/Styles';
 import RNETouchable from '../../../common/components/RNETouchable';
 
@@ -52,13 +53,11 @@ class HomeScreenTwo extends Component {
         const { onNavigate } = this.props;
 
         onNavigate({
-            type: 'ADD_TO_TAB_STACK',
-            payload: {
-                tab: 0,
-                tabStackChild: {
-                    key: 'HomeScreenThree',
-                    dock: 'TabBar',
-                }
+            type: ACTIONS.ADD_TO_TAB_STACK,
+            tab: 0,
+            tabStackChild: {
+                key: 'HomeScreenThree',
+                dock: 'TabBar',
             }
         });
     }

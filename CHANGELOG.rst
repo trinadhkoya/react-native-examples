@@ -9,7 +9,7 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 
 **UPDATES**
 
-* Upgraded from React-Native 26 to React-Native 27
+* Upgraded from React-Native 0.26 to React-Native 0.28.0-rc.0
 * Upgrade from React 15.0.2 to React 15.1.0
 * IOS Build Taret is >= 8.2
 * Converted all COLORS from rgba to rgb

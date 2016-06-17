@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 
 const {
+    CardStack: NavigationCardStack,
     Transitioner: NavigationTransitioner,
 } = NavigationExperimental;
 
@@ -42,7 +43,7 @@ class MainScreen extends Component {
 
     render() {
         return (
-            <NavigationTransitioner
+            <NavigationCardStack
                 style={styles.container}
                 navigationState={this.props.navigationState}
                 onNavigate={this.props.onNavigate}
