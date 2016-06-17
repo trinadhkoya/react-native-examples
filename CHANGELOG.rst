@@ -12,7 +12,16 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 * Upgraded from React-Native 26 to React-Native 27
 * Upgrade from React 15.0.2 to React 15.1.0
 * IOS Build Taret is >= 8.2
+* Converted all COLORS from rgba to rgb
+* Swapped out all instanced of COLORS for STYLES
 
+**REMOVED**
+
+* ``common/helpers/colors.js``
+
+**ADDED**
+
+* ``constants/styles.js``
 
 [2016-06-05]
 ============
