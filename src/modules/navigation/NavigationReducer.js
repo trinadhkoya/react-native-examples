@@ -3,42 +3,6 @@
 // ========================================================
 'use strict'
 
-
-// ========================================================
-// convenience
-// ========================================================
-
-const TABS = {
-    HOME   : 'Home',
-    SWIPER : 'Swiper',
-    PROFILE: 'Profile',
-}
-
-const TAB_ICONS = {
-    HOME           : require('./tabbar/images/icon-home.png'),
-    HOME_ACTIVE    : require('./tabbar/images/icon-home-active.png'),
-    SWIPER         : require('./tabbar/images/icon-info.png'),
-    SWIPER_ACTIVE  : require('./tabbar/images/icon-info-active.png'),
-    PROFILE        : require('./tabbar/images/icon-profile.png'),
-    PROFILE_ACTIVE : require('./tabbar/images/icon-profile-active.png'),
-}
-
-const TAB_SCREENS = {
-    HOME: {
-        HOME: 'HomeScreen'
-    },
-    SWIPER: {
-        SWIPER: 'SwiperScreen'
-    },
-    PROFILE: {
-        PROFILE: 'ProfileScreen'
-    },
-}
-
-const DOCKS = {
-    TAB_BAR: 'TabBar',
-}
-
 const initialState = {
     key: 'tabs',
     index: 0,
