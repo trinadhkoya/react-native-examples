@@ -4,20 +4,22 @@
 
 'use strict'
 
+import * as ACTIONS from '../../constants/ActionTypes';
+
 
 // ========================================================
 // Action Creators
 // ========================================================
 
 export const jumptToTab = (index) => (
-    type: JUMP_TO_TAB,
+    type: ACTIONS.JUMP_TO_TAB,
     payload: {
         index: index,
     }
 )
 
 export const addToTabStack = (index) => (
-    type: ADD_TO_TAB_STACK,
+    type: ACTIONS.ADD_TO_TAB_STACK,
     payload: {
         index: index,
     }
