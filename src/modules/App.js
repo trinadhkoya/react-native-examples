@@ -17,7 +17,6 @@ import {
 import { connect } from 'react-redux';
 
 // first party
-import * as ACTIONS from '../constants/ActionTypes';
 import MainScreen from './navigation/MainScreen';
 import Dock from './navigation/Dock';
 
@@ -62,8 +61,10 @@ const mapDispatchToProps = (dispatch) => {
 
         // handle navigation actions
         onNavigate: (action) => {
+            console.log('onNavigate called');
+
             switch (action.type) {
-                case ACTIONS.JUMP_TO_TAB:
+                case 'JUMP_TO_TAB':
                     dispatch(action);
 
                     break;

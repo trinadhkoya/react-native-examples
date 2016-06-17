@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import * as STYLES from '../../../constants/Styles';
+import { COLORS } from '../../../common/helpers/styles';
 
 // ========================================================
 // Component
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: STYLES.COLORS.TUMBLEWEED_BROWN,
+        backgroundColor: COLORS.TUMBLEWEED_BROWN,
     },
 });
 

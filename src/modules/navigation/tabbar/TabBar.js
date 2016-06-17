@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 
 // first party
-import * as ACTIONS from '../../../constants/ActionTypes';
 import TabBarItem from './TabBarItem';
 import jumptToTab from '../NavigationActions'
 
@@ -51,7 +50,7 @@ class TabBar extends Component {
                     isActive={tabIndex === index}
                     icon={tab.icon}
                     iconActive={tab.iconActive}
-                    onPress={ () => { onNavigate({ type: ACTIONS.JUMP_TO_TAB, index: index })}}
+                    onPress={ () => { onNavigate({ type: 'JUMP_TO_TAB', payload: { index: index }}) }}
                 />
             )
         })
