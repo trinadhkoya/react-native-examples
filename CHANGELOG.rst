@@ -17,7 +17,8 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 
 **REMOVED**
 
-* ``common/helpers/colors.js``
+* ``common/helpers/colors.js`` - makes more sense to have a directory devoted to constants
+* ``common/helpers`` - not required at this time
 
 **ADDED**
 
