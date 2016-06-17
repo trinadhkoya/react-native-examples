@@ -1,7 +1,10 @@
 // ========================================================
 // NavigationReducer
 // ========================================================
+
 'use strict'
+
+import * as CONST from '../../constants/Navigation';
 
 const initialState = {
     key: 'tabs',
@@ -9,35 +12,35 @@ const initialState = {
     children: [
         // tab state
         {
-            key: TABS.HOME,
+            key: CONST.TABS.HOME,
             index: 0,
-            icon: TAB_ICONS.HOME,
-            iconActive: TAB_ICONS.HOME_ACTIVE,
+            icon: CONST.TAB_ICONS.HOME,
+            iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.HOME.HOME, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.HOME.HOME, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
         // tab state
         {
-            key: TABS.SWIPER,
+            key: CONST.TABS.SWIPER,
             index: 0,
-            icon: TAB_ICONS.SWIPER,
-            iconActive: TAB_ICONS.SWIPER_ACTIVE,
+            icon: CONST.TAB_ICONS.SWIPER,
+            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.SWIPER.SWIPER, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.SWIPER.SWIPER, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
         // tab state
         {
-            key: TABS.PROFILE,
+            key: CONST.TABS.PROFILE,
             index: 0,
-            icon: TAB_ICONS.PROFILE,
-            iconActive: TAB_ICONS.PROFILE_ACTIVE,
+            icon: CONST.TAB_ICONS.PROFILE,
+            iconActive: CONST.TAB_ICONS.PROFILE_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.PROFILE.PROFILE, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.PROFILE.PROFILE, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
     ],
