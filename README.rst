@@ -16,7 +16,7 @@ Project Outline
 ===============
 
 * code lives in the ``src`` directory
-* Redux, React-Native 26, React-Redux,
+* Redux, React-Native 27, React-Redux,
 
 
 Navigation
