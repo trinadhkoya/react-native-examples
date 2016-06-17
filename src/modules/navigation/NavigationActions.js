@@ -21,3 +21,7 @@ export const addToTabStack = (index) => (
     index: index,
 )
 
+export const onNavigate = () => (
+    type: 'navigate',
+)
+

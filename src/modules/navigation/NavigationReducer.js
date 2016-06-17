@@ -4,11 +4,19 @@
 
 'use strict'
 
+// core
+import { NavigationExperimental } from 'react-native'
+const {
+  StateUtils: NavigationStateUtils
+} = NavigationExperimental
+
+// first party
 import * as CONST from '../../constants/Navigation';
+import * as ACTIONS from '../../constants/ActionTypes';
 
 const initialState = {
-    key: 'tabs',
     index: 0,
+    key: 'root',
     children: [
         // tab state
         {
@@ -44,6 +52,45 @@ const initialState = {
             ]
         },
     ],
+}
+
+
+// ========================================================
+// Reducer
+// ========================================================
+
+function NavigationReducer(state = initialState, action) {
+    switch (action.type) {
+        case ACTIONS.JUMP_TO_TAB:
+
+            return {
+                ...state,
+                index: action.index,
+            }
+
+            // return NavigationStateUtils.jumpToIndex(state, action.index)
+
+        case ACTIONS.ADD_TO_TAB_STACK:
+
+            const { tab, tabStackChild } = action;
+
+            return pushToTabStack(state, tab, tabStackChild)
+
+        case 'RESET_STACK':
+
+            return resetTabStack(state, action.payload.tab)
+
+        case 'BACK':
+
+            // let newState = pushTabChildState(state, action.payload.tab, action.payload.newChildState)
+
+            // return newState;
+
+            break;
+
+        default:
+            return state;
+    }
 }
 
 // ========================================================
@@ -139,45 +186,6 @@ function resetTabStack(state, tabIndex) {
     }
 
     return tabSackState
-}
-
-
-
-// ========================================================
-// Reducer
-// ========================================================
-
-function NavigationReducer(state = initialState, action) {
-
-    switch (action.type) {
-        case 'JUMP_TO_TAB':
-
-            return {
-                ...state,
-                index: action.payload.index,
-            }
-
-        case 'ADD_TO_TAB_STACK':
-
-            const { tab, tabStackChild } = action.payload;
-
-            return pushToTabStack(state, tab, tabStackChild)
-
-        case 'RESET_STACK':
-
-            return resetTabStack(state, action.payload.tab)
-
-        case 'BACK':
-
-            // let newState = pushTabChildState(state, action.payload.tab, action.payload.newChildState)
-
-            // return newState;
-
-            break;
-
-        default:
-            return state;
-    }
 }
 
 module.exports = NavigationReducer;
