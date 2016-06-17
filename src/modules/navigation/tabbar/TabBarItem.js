@@ -61,9 +61,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
-    tabIconContainer: {
+    iconContainer: {
         flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
     },
     tabIcon: {
         width: 20,

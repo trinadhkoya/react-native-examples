@@ -14,44 +14,57 @@ const {
 import * as CONST from '../../constants/Navigation';
 import * as ACTIONS from '../../constants/ActionTypes';
 
+// const initialState = {
+//     index: 0,
+//     key: 'root',
+//     children: [
+//         // tab state
+//         {
+//             key: CONST.TABS.HOME,
+//             index: 0,
+//             icon: CONST.TAB_ICONS.HOME,
+//             iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
+//             children:[
+//                 // tab stack
+//                 { key: CONST.TAB_SCREENS.HOME.HOME, dock: CONST.DOCKS.TAB_BAR }
+//             ]
+//         },
+//         // tab state
+//         {
+//             key: CONST.TABS.SWIPER,
+//             index: 0,
+//             icon: CONST.TAB_ICONS.SWIPER,
+//             iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
+//             children:[
+//                 // tab stack
+//                 { key: CONST.TAB_SCREENS.SWIPER.SWIPER, dock: CONST.DOCKS.TAB_BAR }
+//             ]
+//         },
+//         // tab state
+//         {
+//             key: CONST.TABS.PROFILE,
+//             index: 0,
+//             icon: CONST.TAB_ICONS.PROFILE,
+//             iconActive: CONST.TAB_ICONS.PROFILE_ACTIVE,
+//             children:[
+//                 // tab stack
+//                 { key: CONST.TAB_SCREENS.PROFILE.PROFILE, dock: CONST.DOCKS.TAB_BAR }
+//             ]
+//         },
+//     ],
+// }
+
 const initialState = {
     index: 0,
     key: 'root',
     routes: [
-        // tab state
         {
-            key: CONST.TABS.HOME,
-            index: 0,
+            key: CONST.TAB_SCREENS.HOME.HOME,
+            dock: CONST.DOCKS.TAB_BAR,
             icon: CONST.TAB_ICONS.HOME,
             iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
-            children:[
-                // tab stack
-                { key: CONST.TAB_SCREENS.HOME.HOME, dock: CONST.DOCKS.TAB_BAR }
-            ]
-        },
-        // tab state
-        {
-            key: CONST.TABS.SWIPER,
-            index: 0,
-            icon: CONST.TAB_ICONS.SWIPER,
-            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
-            children:[
-                // tab stack
-                { key: CONST.TAB_SCREENS.SWIPER.SWIPER, dock: CONST.DOCKS.TAB_BAR }
-            ]
-        },
-        // tab state
-        {
-            key: CONST.TABS.PROFILE,
-            index: 0,
-            icon: CONST.TAB_ICONS.PROFILE,
-            iconActive: CONST.TAB_ICONS.PROFILE_ACTIVE,
-            children:[
-                // tab stack
-                { key: CONST.TAB_SCREENS.PROFILE.PROFILE, dock: CONST.DOCKS.TAB_BAR }
-            ]
-        },
-    ],
+        }
+    ]
 }
 
 

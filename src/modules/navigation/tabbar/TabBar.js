@@ -43,7 +43,7 @@ class TabBar extends Component {
 
         const tabIndex = navigationState.index;
 
-        return navigationState.children.map( (tab, index) => {
+        return navigationState.routes.map( (tab, index) => {
             return (
                 <TabBarItem
                     key={index}

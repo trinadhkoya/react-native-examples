@@ -34,9 +34,9 @@ class Screen extends Component {
         const { navigationState, onNavigate } = this.props;
 
         let activeTabIndex     = navigationState.index;
-        let activeTab          = navigationState.children[activeTabIndex];
-        let activeScreenIndex  = activeTab.index;
-        let activeScreen       = activeTab.children[activeScreenIndex].key;
+        let activeTab          = navigationState.routes[activeTabIndex];
+        // let activeScreenIndex  = activeTab.index;
+        // let activeScreen       = activeTab.routes[activeScreenIndex].key;
 
         const TAB_SCREENS = {
             HomeScreen: HomeScreen,
@@ -46,7 +46,7 @@ class Screen extends Component {
             ProfileScreen: ProfileScreen,
         }
 
-        let Component = TAB_SCREENS[activeScreen];
+        let Component = TAB_SCREENS[activeTab.key];
 
         return (
             <Component navigationState={navigationState} onNavigate={onNavigate}/>

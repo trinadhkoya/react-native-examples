@@ -27,15 +27,15 @@ class Dock extends Component {
         const { navigationState, onNavigate } = this.props;
 
         let activeTabIndex     = navigationState.index;
-        let activeTab          = navigationState.children[activeTabIndex];
-        let activeScreenIndex  = activeTab.index;
-        let activeDock         = activeTab.children[activeScreenIndex].dock;
+        let activeTab          = navigationState.routes[activeTabIndex];
+        // let activeScreenIndex  = activeTab.index;
+        // let activeDock         = activeTab.children[activeScreenIndex].dock;
 
         const DOCKS = {
             TabBar: TabBar,
         }
 
-        const Component = DOCKS[activeDock];
+        const Component = DOCKS[activeTab.dock];
 
         return (
             <Component navigationState={navigationState} onNavigate={onNavigate} />
