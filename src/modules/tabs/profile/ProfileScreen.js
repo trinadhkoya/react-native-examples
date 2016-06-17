@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import { COLORS } from '../../../common/helpers/styles';
+import * as STYLES from '../../../constants/Styles';
 
 // ========================================================
 // Component
@@ -47,11 +47,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: COLORS.BALTIC_SEA_BLUE,
-        backgroundColor: 'white',
+        backgroundColor: STYLES.COLORS.BALTIC_SEA_BLUE,
     },
     text: {
-        color: 'white',
+        color: STYLES.COLORS.WHITE,
     }
 });
 

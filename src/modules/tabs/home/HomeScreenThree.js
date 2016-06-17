@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import { COLORS } from '../../../common/helpers/styles'
+import * as STYLES from '../../../constants/Styles';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.FESTIVAL_YELLOW,
+        backgroundColor: STYLES.COLORS.FESTIVAL_YELLOW,
     },
     button: {
         height: 50,

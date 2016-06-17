@@ -1,82 +1,96 @@
 // ========================================================
 // NavigationReducer
 // ========================================================
+
 'use strict'
 
+// core
+import { NavigationExperimental } from 'react-native'
+const {
+  StateUtils: NavigationStateUtils
+} = NavigationExperimental
 
-// ========================================================
-// convenience
-// ========================================================
-
-const TABS = {
-    HOME   : 'Home',
-    SWIPER : 'Swiper',
-    PROFILE: 'Profile',
-}
-
-const TAB_ICONS = {
-    HOME           : require('./tabbar/images/icon-home.png'),
-    HOME_ACTIVE    : require('./tabbar/images/icon-home-active.png'),
-    SWIPER         : require('./tabbar/images/icon-info.png'),
-    SWIPER_ACTIVE  : require('./tabbar/images/icon-info-active.png'),
-    PROFILE        : require('./tabbar/images/icon-profile.png'),
-    PROFILE_ACTIVE : require('./tabbar/images/icon-profile-active.png'),
-}
-
-const TAB_SCREENS = {
-    HOME: {
-        HOME: 'HomeScreen'
-    },
-    SWIPER: {
-        SWIPER: 'SwiperScreen'
-    },
-    PROFILE: {
-        PROFILE: 'ProfileScreen'
-    },
-}
-
-const DOCKS = {
-    TAB_BAR: 'TabBar',
-}
+// first party
+import * as CONST from '../../constants/Navigation';
+import * as ACTIONS from '../../constants/ActionTypes';
 
 const initialState = {
-    key: 'tabs',
     index: 0,
+    key: 'root',
     children: [
         // tab state
         {
-            key: TABS.HOME,
+            key: CONST.TABS.HOME,
             index: 0,
-            icon: TAB_ICONS.HOME,
-            iconActive: TAB_ICONS.HOME_ACTIVE,
+            icon: CONST.TAB_ICONS.HOME,
+            iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.HOME.HOME, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.HOME.HOME, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
         // tab state
         {
-            key: TABS.SWIPER,
+            key: CONST.TABS.SWIPER,
             index: 0,
-            icon: TAB_ICONS.SWIPER,
-            iconActive: TAB_ICONS.SWIPER_ACTIVE,
+            icon: CONST.TAB_ICONS.SWIPER,
+            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.SWIPER.SWIPER, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.SWIPER.SWIPER, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
         // tab state
         {
-            key: TABS.PROFILE,
+            key: CONST.TABS.PROFILE,
             index: 0,
-            icon: TAB_ICONS.PROFILE,
-            iconActive: TAB_ICONS.PROFILE_ACTIVE,
+            icon: CONST.TAB_ICONS.PROFILE,
+            iconActive: CONST.TAB_ICONS.PROFILE_ACTIVE,
             children:[
                 // tab stack
-                { key: TAB_SCREENS.PROFILE.PROFILE, dock: DOCKS.TAB_BAR }
+                { key: CONST.TAB_SCREENS.PROFILE.PROFILE, dock: CONST.DOCKS.TAB_BAR }
             ]
         },
     ],
+}
+
+
+// ========================================================
+// Reducer
+// ========================================================
+
+function NavigationReducer(state = initialState, action) {
+    switch (action.type) {
+        case ACTIONS.JUMP_TO_TAB:
+
+            return {
+                ...state,
+                index: action.index,
+            }
+
+            // return NavigationStateUtils.jumpToIndex(state, action.index)
+
+        case ACTIONS.ADD_TO_TAB_STACK:
+
+            const { tab, tabStackChild } = action;
+
+            return pushToTabStack(state, tab, tabStackChild)
+
+        case 'RESET_STACK':
+
+            return resetTabStack(state, action.payload.tab)
+
+        case 'BACK':
+
+            // let newState = pushTabChildState(state, action.payload.tab, action.payload.newChildState)
+
+            // return newState;
+
+            break;
+
+        default:
+            return state;
+    }
 }
 
 // ========================================================
@@ -172,45 +186,6 @@ function resetTabStack(state, tabIndex) {
     }
 
     return tabSackState
-}
-
-
-
-// ========================================================
-// Reducer
-// ========================================================
-
-function NavigationReducer(state = initialState, action) {
-
-    switch (action.type) {
-        case 'JUMP_TO_TAB':
-
-            return {
-                ...state,
-                index: action.payload.index,
-            }
-
-        case 'ADD_TO_TAB_STACK':
-
-            const { tab, tabStackChild } = action.payload;
-
-            return pushToTabStack(state, tab, tabStackChild)
-
-        case 'RESET_STACK':
-
-            return resetTabStack(state, action.payload.tab)
-
-        case 'BACK':
-
-            // let newState = pushTabChildState(state, action.payload.tab, action.payload.newChildState)
-
-            // return newState;
-
-            break;
-
-        default:
-            return state;
-    }
 }
 
 module.exports = NavigationReducer;
