@@ -4,6 +4,15 @@ Change Log
 
 All enhancements to React-Native-Examples will be documented in this file. This project adheres to `Semantic Versioning`_.
 
+[2016-06-17]
+============
+
+**UPDATES**
+
+* Upgraded from React-Native 26 to React-Native 27
+* Upgrade from React 15.0.2 to React 15.1.0
+
+
 [2016-06-05]
 ============
 
