@@ -63,6 +63,12 @@ const initialState = {
             dock: CONST.DOCKS.TAB_BAR,
             icon: CONST.TAB_ICONS.HOME,
             iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
+        },
+        {
+            key: CONST.TAB_SCREENS.SWIPER.SWIPER,
+            dock: CONST.DOCKS.TAB_BAR,
+            icon: CONST.TAB_ICONS.SWIPER,
+            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
         }
     ]
 }

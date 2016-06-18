@@ -43,7 +43,7 @@ class MainScreen extends Component {
 
     render() {
         return (
-            <NavigationCardStack
+            <NavigationTransitioner
                 style={styles.container}
                 navigationState={this.props.navigationState}
                 onNavigate={this.props.onNavigate}
@@ -52,7 +52,7 @@ class MainScreen extends Component {
         );
     }
 
-    _renderScene(props: NavigationSceneRendererProps) {
+    _renderScene(props) {
         return (
             <TabScreen
                 onNavigate={this.props.onNavigate}
