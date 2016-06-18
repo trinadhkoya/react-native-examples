@@ -28,6 +28,7 @@ import {
 
 // first party
 import TabScreen from './TabScreen';
+import Screen from './Screen';
 
 // ========================================================
 // Component
@@ -54,7 +55,7 @@ class MainScreen extends Component {
 
     _renderScene(props) {
         return (
-            <TabScreen
+            <Screen
                 onNavigate={this.props.onNavigate}
                 navigationState={this.props.navigationState}
             />
