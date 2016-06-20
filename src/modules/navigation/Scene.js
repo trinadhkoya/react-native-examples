@@ -37,7 +37,7 @@ class Scene extends Component {
             HomeScreen: HomeScreen,
             HomeScreenTwo: HomeScreenTwo,
             HomeScreenThree: HomeScreenThree,
-            SwiperScreen: InfoScreen,
+            InfoScreen: InfoScreen,
             ProfileScreen: ProfileScreen,
         }
 
