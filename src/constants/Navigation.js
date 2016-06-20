@@ -21,7 +21,8 @@ export const TAB_ICONS = {
 
 export const TAB_SCENE = {
     HOME: {
-        BASE: 'HomeScreen'
+        BASE: 'HomeScreen',
+        HOME_TWO: 'HomeScreenTwo',
     },
     INFO: {
         BASE: 'InfoScreen'
@@ -33,4 +34,13 @@ export const TAB_SCENE = {
 
 export const DOCK = {
     TAB_BAR: 'TabBar',
+}
+
+export const HOME_ROUTES = {
+    HOME_TWO: {
+        key: TAB_SCENE.HOME.HOME_TWO,
+        dock: DOCK.TAB_BAR,
+        inactiveTabIcon: TAB_ICONS.HOME,
+        activeTabIcon: TAB_ICONS.HOME_ACTIVE,
+    }
 }

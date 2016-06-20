@@ -16,6 +16,7 @@ import {
 // first party
 import * as ACTIONS from '../../../constants/ActionTypes';
 import * as STYLES from '../../../constants/Styles';
+import * as NAV from '../../../constants/Navigation';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
@@ -52,14 +53,7 @@ class HomeScreen extends Component {
     _handleHomeScreenClick() {
         const { onNavigate } = this.props;
 
-        // onNavigate({
-        //     type: ACTIONS.ADD_TO_TAB_STACK,
-        //     tab: 0,
-        //     tabStackChild: {
-        //         key: 'HomeScreenTwo',
-        //         dock: 'TabBar',
-        //     }
-        // });
+        onNavigate({ type: ACTIONS.PUSH_ROUTE, tabKey: 'home', route: NAV.HOME_ROUTES.HOME_TWO });
     }
 }
 

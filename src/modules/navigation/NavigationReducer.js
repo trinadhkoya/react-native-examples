@@ -77,16 +77,13 @@ function NavigationReducer(state = initialState, action) {
     switch (action.type) {
         // push to tab scene stack
         case ACTIONS.PUSH_ROUTE: {
-            const route      = action.route;
-            const tabs       = state.tabs;
-            const tabKey     = tabs.routes[tabs.key].key;
-            const scenes     = state[tabKey];
-            const nextScenes = NavigationStateUtils.push(scenes, route);
+            const scenes     = state[action.tabKey];
+            const nextScenes = NavigationStateUtils.push(scenes, action.route);
 
             if (scenes !== nextScenes) {
                 return {
                    ...state,
-                   [tabKey]: nextScenes,
+                   [action.tabKey]: nextScenes,
                 };
             }
             break;

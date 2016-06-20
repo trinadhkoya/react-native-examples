@@ -11,16 +11,17 @@ import * as ACTIONS from '../../constants/ActionTypes';
 // Action Creators
 // ========================================================
 
-export const pushRoute = (route) => {
+export const pushRoute = (tabKey, route) => {
     return {
-        type: ACTIONS.PUSH,
-        route: route
+        type: ACTIONS.PUSH_ROUTE,
+        tabKey: tabKey,
+        route: route,
     }
 }
 
 export const popRoute = (route) => {
     return {
-        type: ACTIONS.POP,
+        type: ACTIONS.POP_ROUTE,
         route: route
     }
 }
