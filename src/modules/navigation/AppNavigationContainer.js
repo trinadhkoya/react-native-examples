@@ -107,7 +107,9 @@ const mapDispatchToProps = (dispatch) => {
                 case ACTIONS.BACK_ACTION:
                     return dispatch(NavActions.popRoute());
                 case ACTIONS.PUSH_ROUTE:
-                    return dispatch(NavActions.pushRoute(action.tabKey, action.route));
+                    return dispatch(NavActions.pushRoute(action.route));
+                case ACTIONS.RESET_ROUTES:
+                    return dispatch(NavActions.resetRoutes(action.tabKey));
                 case ACTIONS.SELECT_TAB:
                     return dispatch(NavActions.selectTab(action.tabKey));
                 default:

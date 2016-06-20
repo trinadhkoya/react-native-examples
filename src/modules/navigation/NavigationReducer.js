@@ -22,6 +22,7 @@ const initialState =  {
     // Three tabs.
     tabs: {
         index: 0,
+        key: 'root',
         routes: [
             {key: 'home'},
             {key: 'info'},
@@ -77,13 +78,16 @@ function NavigationReducer(state = initialState, action) {
     switch (action.type) {
         // push to tab scene stack
         case ACTIONS.PUSH_ROUTE: {
-            const scenes     = state[action.tabKey];
-            const nextScenes = NavigationStateUtils.push(scenes, action.route);
+
+            const activeTabIndex  = state.tabs.index;
+            const activeTabKey    = state.tabs.routes[activeTabIndex].key
+            const scenes          = state[activeTabKey];
+            const nextScenes      = NavigationStateUtils.push(scenes, action.route);
 
             if (scenes !== nextScenes) {
                 return {
                    ...state,
-                   [action.tabKey]: nextScenes,
+                   [activeTabKey]: nextScenes,
                 };
             }
             break;
@@ -102,6 +106,20 @@ function NavigationReducer(state = initialState, action) {
                    [tabKey]: nextScenes,
                 };
             }
+            break;
+        }
+
+        case ACTIONS.RESET_ROUTES: {
+            const scenes       = state[action.tabKey];
+            const nextChildren = scenes.routes.slice(0, 1);
+            const nextIndex    = 0;
+            const nextScenes   = NavigationStateUtils.reset(scenes, nextChildren, nextIndex);
+
+            return {
+               ...state,
+               [action.tabKey]: nextScenes,
+            };
+
             break;
         }
 

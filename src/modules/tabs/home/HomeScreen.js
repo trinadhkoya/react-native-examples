@@ -53,7 +53,7 @@ class HomeScreen extends Component {
     _handleHomeScreenClick() {
         const { onNavigate } = this.props;
 
-        onNavigate({ type: ACTIONS.PUSH_ROUTE, tabKey: 'home', route: NAV.HOME_ROUTES.HOME_TWO });
+        onNavigate({ type: ACTIONS.PUSH_ROUTE, route: NAV.HOME_ROUTES.HOME_TWO });
     }
 }
 
