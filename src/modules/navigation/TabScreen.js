@@ -25,7 +25,7 @@ import {
 
 // first party
 import NavigationBar from './NavigationBar';
-import Screen from './Screen';
+import Screen from './Scene';
 
 // ========================================================
 // TabScreen

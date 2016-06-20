@@ -4,33 +4,33 @@
 
 'use strict'
 
-export const TABS = {
+export const TAB = {
     HOME   : 'Home',
-    SWIPER : 'Swiper',
+    INFO   : 'Info',
     PROFILE: 'Profile',
 }
 
 export const TAB_ICONS = {
     HOME           : require('../modules/navigation/tabbar/images/icon-home.png'),
     HOME_ACTIVE    : require('../modules/navigation/tabbar/images/icon-home-active.png'),
-    SWIPER         : require('../modules/navigation/tabbar/images/icon-info.png'),
-    SWIPER_ACTIVE  : require('../modules/navigation/tabbar/images/icon-info-active.png'),
+    INFO           : require('../modules/navigation/tabbar/images/icon-info.png'),
+    INFO_ACTIVE    : require('../modules/navigation/tabbar/images/icon-info-active.png'),
     PROFILE        : require('../modules/navigation/tabbar/images/icon-profile.png'),
     PROFILE_ACTIVE : require('../modules/navigation/tabbar/images/icon-profile-active.png'),
 }
 
-export const TAB_SCREENS = {
+export const TAB_SCENE = {
     HOME: {
-        HOME: 'HomeScreen'
+        BASE: 'HomeScreen'
     },
-    SWIPER: {
-        SWIPER: 'SwiperScreen'
+    INFO: {
+        BASE: 'InfoScreen'
     },
     PROFILE: {
-        PROFILE: 'ProfileScreen'
+        BASE: 'ProfileScreen'
     },
 }
 
-export const DOCKS = {
+export const DOCK = {
     TAB_BAR: 'TabBar',
 }

@@ -22,7 +22,7 @@ import { Provider } from 'react-redux';
 import devTools from 'remote-redux-devtools';
 
 // first party
-import App from './modules/App'
+import AppNavigationContainer from './modules/navigation/AppNavigationContainer'
 import reducers from './common/reducers/index.js';
 
 // ========================================================
@@ -49,7 +49,7 @@ class react_native_examples extends Component {
     render() {
         return (
             <Provider store={store}>
-                <App />
+                <AppNavigationContainer />
             </Provider>
         );
     }

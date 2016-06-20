@@ -28,9 +28,9 @@ class TabBarItem extends Component {
 
     render() {
 
-        const { isActive } = this.props
+        const { isActive, activeTabIcon, inactiveTabIcon } = this.props;
 
-        let icon = isActive ? this.props.iconActive : this.props.icon
+        let icon = isActive ? activeTabIcon : inactiveTabIcon;
 
         return (
             <RNETouchable

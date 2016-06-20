@@ -52,14 +52,14 @@ class HomeScreenTwo extends Component {
     _handleHomeScreenTwoClick() {
         const { onNavigate } = this.props;
 
-        onNavigate({
-            type: ACTIONS.ADD_TO_TAB_STACK,
-            tab: 0,
-            tabStackChild: {
-                key: 'HomeScreenThree',
-                dock: 'TabBar',
-            }
-        });
+        // onNavigate({
+        //     type: ACTIONS.ADD_TO_TAB_STACK,
+        //     tab: 0,
+        //     tabStackChild: {
+        //         key: 'HomeScreenThree',
+        //         dock: 'TabBar',
+        //     }
+        // });
     }
 }
 

@@ -14,7 +14,7 @@ import {
   Text,
   View,
   NavigationExperimental,
-  Animated,
+  Easing,
 } from 'react-native';
 
 const {
@@ -27,8 +27,8 @@ import {
 } from 'NavigationTypeDefinition';
 
 // first party
-import TabScreen from './TabScreen';
-import Screen from './Screen';
+// import TabScreen from './TabScreen';
+// import Scene from './Scene';
 
 // ========================================================
 // Component
@@ -39,7 +39,8 @@ class MainScreen extends Component {
     constructor(props) {
         super(props);
 
-        this._renderScene = this._renderScene.bind(this);
+        this._renderScene         = this._renderScene.bind(this);
+        this._configureTransition = this._configureTransition.bind(this);
     }
 
     render() {
@@ -49,17 +50,26 @@ class MainScreen extends Component {
                 navigationState={this.props.navigationState}
                 onNavigate={this.props.onNavigate}
                 renderScene={this._renderScene}
+                configureTransition={this._configureTransition}
             />
         );
     }
 
     _renderScene(props) {
         return (
-            <Screen
-                onNavigate={this.props.onNavigate}
-                navigationState={this.props.navigationState}
+            <Scene
+                onNavigate={props.onNavigate}
+                navigationState={props.navigationState}
+                scene={props.scene}
             />
         )
+    }
+
+    _configureTransition() {
+        return {
+            duration: 0,
+            easing: Easing.inOut(Easing.ease),
+        }
     }
 }
 

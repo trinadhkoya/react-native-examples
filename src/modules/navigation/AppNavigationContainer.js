@@ -106,10 +106,10 @@ const mapDispatchToProps = (dispatch) => {
             switch (action.type) {
                 case ACTIONS.BACK_ACTION:
                     return dispatch(NavActions.popRoute());
-                case ACTIONS.PUSH:
+                case ACTIONS.PUSH_ROUTE:
                     return dispatch(NavActions.pushRoute());
                 case ACTIONS.SELECT_TAB:
-                    return dispatch(NavActions.selectTab(action.tabIndex));
+                    return dispatch(NavActions.selectTab(action.tabKey));
                 default:
                     break;
             }

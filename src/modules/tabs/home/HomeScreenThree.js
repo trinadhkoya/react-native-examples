@@ -51,12 +51,12 @@ class HomeScreenThree extends Component {
     _handleButtonPress() {
         const { onNavigate } = this.props;
 
-        onNavigate({
-            type: 'RESET_STACK',
-            payload: {
-                tab: 0,
-            }
-        });
+        // onNavigate({
+        //     type: 'RESET_STACK',
+        //     payload: {
+        //         tab: 0,
+        //     }
+        // });
     }
 }
 

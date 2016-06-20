@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-
+import CONST, { DOCK } from '../../constants/Navigation';
 import TabBar from './tabbar/TabBar';
 
 // ========================================================
@@ -24,21 +24,16 @@ import TabBar from './tabbar/TabBar';
 class Dock extends Component {
     render() {
 
-        const { navigationState, onNavigate } = this.props;
+        const { navigationState, onNavigate, scenes } = this.props;
 
-        let activeTabIndex     = navigationState.index;
-        let activeTab          = navigationState.routes[activeTabIndex];
-        // let activeScreenIndex  = activeTab.index;
-        // let activeDock         = activeTab.children[activeScreenIndex].dock;
-
-        const DOCKS = {
+        const DOCK = {
             TabBar: TabBar,
         }
 
-        const Component = DOCKS[activeTab.dock];
+        const Component = DOCK[scenes.routes[0].dock];
 
         return (
-            <Component navigationState={navigationState} onNavigate={onNavigate} />
+            <Component navigationState={navigationState} onNavigate={onNavigate} scenes={scenes} />
         );
     }
 }

@@ -124,3 +124,292 @@ https://egghead.io/lessons/javascript-redux-simplifying-the-arrow-functions?cour
 
 .. _`immutability`: https://www.sitepoint.com/immutability-javascript/
 
+
+
+// Which sites did I have open when I was figuring out how this whole thing worked
+// https://github.com/facebook/react-native/blob/0.28-stable/Libraries/CustomComponents/NavigationExperimental/NavigationCardStack.js
+// https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationAnimatedView.js
+// https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationTransitioner.js
+// https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationTypeDefinition.js
+// https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/Reducer/NavigationScenesReducer.js
+// https://github.com/facebook/react-native/blob/b90b57c9a122f1500db18113d476b6ec4621eb65/Libraries/Animated/src/Easing.js
+// http://xaedes.de/dev/transitions/ - illustrates the Easing module
+// https://facebook.github.io/react-native/docs/animated.html - documentation showing example of Easing
+
+// https://github.com/ericvicenti/navigation-rfc/blob/master/Docs/Navigation.md
+// The above actually does a really nice job of explaining some stuff about NavigationExperimental
+// but where it falls short is the fact that it provides no context.
+
+// https://github.com/facebook/react-native/commit/1dc33b5
+// example of a composed NavigationExperimental
+
+// ========================================================
+// STRUCTURE ATTEMPT ONE
+// ========================================================
+
+
+// NAVIGATION REDUCER
+{
+    index: 0,
+    key: 'root',
+    routes: [
+        {
+            key: CONST.TAB_SCREENS.HOME.HOME,
+            dock: CONST.DOCKS.TAB_BAR,
+            icon: CONST.TAB_ICONS.HOME,
+            iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
+        },
+        {
+            key: CONST.TAB_SCREENS.SWIPER.SWIPER,
+            dock: CONST.DOCKS.TAB_BAR,
+            icon: CONST.TAB_ICONS.SWIPER,
+            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
+        }
+    ]
+}
+
+// SCENE
+
+{
+    index: 0,
+    isStale: false,
+    key: "scene_HomeScreen"
+    routes: [
+        {
+            dock:"TabBar",
+            icon: 1,
+            iconActive: 2,
+            key: "HomeScreen"
+        }
+    ]
+}
+
+// SCENES
+// Same as above, just done for each of the routes in the NavigationState
+
+
+// ========================================================
+// STRUCTURE ATTEMPT TWO
+// ========================================================
+
+const initialState = {
+    index: 0,
+    key: 'root',
+    routes: [
+        {
+            index: 0,
+            key: CONST.TAB_SCREENS.HOME.HOME,
+            dock: CONST.DOCKS.TAB_BAR,
+            icon: CONST.TAB_ICONS.HOME,
+            iconActive: CONST.TAB_ICONS.HOME_ACTIVE,
+            routes: [
+                { key: 'HomeScreenTwo', dock: CONST.DOCKS.TAB_BAR, icon: CONST.TAB_ICONS.HOME, iconActive: CONST.TAB_ICONS.HOME_ACTIVE,}
+            ]
+        },
+        {
+            index: 0,
+            key: CONST.TAB_SCREENS.SWIPER.SWIPER,
+            dock: CONST.DOCKS.TAB_BAR,
+            icon: CONST.TAB_ICONS.SWIPER,
+            iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,
+            routes: [
+                { key: 'SwiperScreen', dock: CONST.DOCKS.TAB_BAR, icon: CONST.TAB_ICONS.SWIPER, iconActive: CONST.TAB_ICONS.SWIPER_ACTIVE,}
+            ]
+        }
+    ]
+}
+
+
+// ========================================================
+// ANOTHER EXAMPLE OF HOW THIS WORKS
+// ========================================================
+
+// I am going through this example:  https://github.com/facebook/react-native/commit/1dc33b5 and I am breaking
+// it down into a way that is a little easier to understand.
+
+const {
+    CardStack: NavigationCardStack,
+    Header: NavigationHeader,
+    PropTypes: NavigationPropTypes,
+    StateUtils: NavigationStateUtils,
+} = NavigationExperimental;
+
+
+// INITIAL STATE === createAppNavigationState()
+
+const initialState =  {
+    // Three tabs.
+    tabs: {
+        index: 0,
+        routes: [
+            {key: 'home'},
+            {key: 'about'},
+            {key: 'profile'},
+        ],
+    },
+    // Scenes for the `apple` tab.
+    home: {
+        index: 0,
+        routes: [
+            {key: 'HomeScreen'}
+        ],
+    },
+    // Scenes for the `banana` tab.
+    about: {
+        index: 0,
+        routes: [
+            {key: 'AboutScreen'}
+        ],
+    },
+    // Scenes for the `orange` tab.
+    profile: {
+        index: 0,
+        routes: [
+            {key: 'profileScreen'}
+        ],
+    },
+}
+
+// NavigationStateReducer === updateAppNavigationState()
+
+function NavigationStateReducer(state = initialstate, action) {
+
+    switch (action.type) {
+        case 'PUSH':
+            const route      = action.route;
+            const tabs       = state.tabs;
+            const tabKey     = tabs.routes[tabs.key].key;
+            const scenes     = state[tabKey];
+            const nextScenes = NavigationStateUtils.push(scenes, route);
+
+            if (scenes !== nextScenes) {
+                return {
+                    ...state,
+                    [tabKey]: nextScenes,
+                };
+            }
+            break;
+
+        case 'POP':
+            const route      = action.route;
+            const tabs       = state.tabs;
+            const scenes     = state[tabKey];
+            const nextScenes = NavigationStateUtils.pop(scenes);
+
+            if (scenes !== nextScenes) {
+                return {
+                    ...state,
+                    [tabKey]: nextScenes,
+                };
+            }
+            break;
+
+        case 'SELECT_TAB':
+            const tabKey = action.tabKey;
+            const tabs   = NavigationStateUtils.jumpTo(state.tabs, tabKey);
+
+            if (tabs !== state.tabs) {
+                return {
+                    ...state,
+                    tabs,
+                }
+            }
+    }
+
+    return state;
+}
+
+// App (MAIN.JS) === YourApplication
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this._onNavigate = this._onNavigate.bind(this);
+    }
+
+    render() {
+        return (
+            <Navigator
+                navigationState={this.props.navigationState}
+                onNavigate={this._onNavigate}
+            />
+        )
+    }
+
+    _onNavigate() {
+        // do the normal stuff that this would do
+    }
+}
+
+// Navigation === YourNavigator
+
+class Navigator extends Component {
+
+    constructor(props) {
+        super(props)
+
+        this._renderScene = this._renderScene.bind(this);
+    }
+
+    render() {
+        const { navigationState } = this.props;
+        const { tabs } = navigationState;
+        const tabKey = tabs.routes[tabs.index].key;
+        const scenes = navigationState[tabKey];
+
+        return (
+            <View style={styles.navigator}>
+                <NavigationCardStack
+                    key={'stack_' + tabKey}
+                    onNavigate={this.props.onNavigate}
+                    navigationState={scenes}
+                    renderScene={this._renderScene}
+                    style={styles.navigatorCardStack}
+                />
+                <Dock
+                  navigationState={tabs}
+                />
+            </View>
+        );
+
+    }
+}
+
+// SCENE === YourScrene
+
+class Scene extends Component {
+    constructor(props) {
+        super(props)
+
+        this._renderScene = this._renderScene.bind(this);
+    }
+
+    render() {
+        return (
+            <View style={styles.navigator}>
+                <Text>Scene</Text>
+            </View>
+        );
+    }
+}
+
+// DOCK === YourTabs
+
+class Dock extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <View style={styles.navigator}>
+                <Text>Scene</Text>
+            </View>
+        );
+    }
+}
+
+
+
+

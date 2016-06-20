@@ -16,7 +16,7 @@ import {
 // first party
 import * as ACTIONS from '../../../constants/ActionTypes';
 import TabBarItem from './TabBarItem';
-import jumptToTab from '../NavigationActions'
+import * as NavActions from '../NavigationActions'
 
 // ========================================================
 // Component
@@ -39,19 +39,25 @@ class TabBar extends Component {
     }
 
     _renderTabItems() {
-        const { navigationState, onNavigate } = this.props;
+        const { navigationState, onNavigate, scenes } = this.props;
 
-        const tabIndex = navigationState.index;
+        const tabIndex = navigationState.tabs.index;
 
-        return navigationState.routes.map( (tab, index) => {
+        return navigationState.tabs.routes.map( (route, index) => {
+
+            let tab             = navigationState[route.key];
+            let tabSceneIndex   = tab.index;
+            let activeTabIcon   = tab.routes[tabSceneIndex].activeTabIcon;
+            let inactiveTabIcon = tab.routes[tabSceneIndex].inactiveTabIcon;
+
             return (
                 <TabBarItem
                     key={index}
-                    caption={tab.key}
+                    caption={route.key}
                     isActive={tabIndex === index}
-                    icon={tab.icon}
-                    iconActive={tab.iconActive}
-                    onPress={ () => { onNavigate({ type: ACTIONS.JUMP_TO_TAB, index: index })}}
+                    activeTabIcon={activeTabIcon}
+                    inactiveTabIcon={inactiveTabIcon}
+                    onPress={ () => { onNavigate({ type: ACTIONS.SELECT_TAB, tabKey: route.key })}}
                 />
             )
         })

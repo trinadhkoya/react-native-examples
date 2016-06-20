@@ -11,17 +11,24 @@ import * as ACTIONS from '../../constants/ActionTypes';
 // Action Creators
 // ========================================================
 
-export const jumptToTab = (index) => (
-    type: ACTIONS.JUMP_TO_TAB,
-    index: index,
-)
+export const pushRoute = (route) => {
+    return {
+        type: ACTIONS.PUSH,
+        route: route
+    }
+}
 
-export const addToTabStack = (index) => (
-    type: ACTIONS.ADD_TO_TAB_STACK,
-    index: index,
-)
+export const popRoute = (route) => {
+    return {
+        type: ACTIONS.POP,
+        route: route
+    }
+}
 
-export const onNavigate = () => (
-    type: 'navigate',
-)
+export const selectTab = (tabKey) => {
+    return {
+        type: ACTIONS.SELECT_TAB,
+        tab: tabKey
+    }
+}
 
