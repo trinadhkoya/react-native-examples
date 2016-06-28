@@ -16,6 +16,8 @@ import {
 
 
 const {
+    Transitioner: NavigationTransitioner,
+    Card: NavigationCard,
     CardStack: NavigationCardStack,
     Header: NavigationHeader,
     PropTypes: NavigationPropTypes,
@@ -40,7 +42,8 @@ class AppNavigationContainer extends Component {
     constructor(props) {
         super(props)
 
-        this._renderScene = this._renderScene.bind(this)
+        this._renderCard = this._renderCard.bind(this);
+        this._renderScene = this._renderScene.bind(this);
     }
 
     render() {
@@ -49,14 +52,16 @@ class AppNavigationContainer extends Component {
         const { tabs } = navigationState;
         const tabKey = tabs.routes[tabs.index].key;
         const scenes = navigationState[tabKey];
+        const configTransition = { duration: scenes.animation === 'reset' ? 0 : 250 };
 
         return (
             <View style={styles.container}>
-                <NavigationCardStack
+                <NavigationTransitioner
                     key={'stack_' + tabKey}
+                    configureTransition={ () => { return configTransition }}
                     onNavigate={this.props.onNavigate}
                     navigationState={scenes}
-                    renderScene={this._renderScene}
+                    renderScene={ (props) => { return this._renderCard(props) }}
                     style={styles.navigationCardStack}
                 />
 
@@ -69,9 +74,23 @@ class AppNavigationContainer extends Component {
         );
     }
 
+
+    _renderCard(sceneProps) {
+        return (
+            <NavigationCard
+                {...sceneProps}
+                key={sceneProps.scene.route.key}
+                renderScene={this._renderScene}
+            />
+        )
+    }
+
     _renderScene(sceneProps) {
         return (
-            <Scene {...sceneProps} />
+            <Scene
+                {...sceneProps}
+                key={sceneProps.scene.route.key}
+            />
         )
     }
 }

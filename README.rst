@@ -2,7 +2,9 @@
 React Native Examples
 *********************
 
-A few samples of some of the more interesting aspects of React Native.
+A few samples of some of the more interesting aspects of React Native.  This is just me exploring how Navigation Experimental works.  Couldn't have done it without the amazing works of :
+
+[list here]
 
 Quickstart
 ==========
@@ -11,6 +13,27 @@ Quickstart
 2. npm install
 3. npm start
 4. open ios/react_native_examples.xcodeproj
+
+Branches
+========
+
+development
+-----------
+
+This branch shows how to create tabs with the CardStack component
+
+feature/NavigationTransitioner
+------------------------------
+
+This branch illustrates how to crate the same effects of the CardStack with a more granular approach.  The idea here is that we can come up with a more central and capable navigation system with this approach.  Which one is best is really up to you and your needs.
+
+One of the reasons I went with this aproach is because when I was resetting stacks it would look like this:
+
+image here
+
+But I wanted this transition to have the potential of looking a little different, which meant a more manual approach was required.  To do this, we add a property to the NavigationState called ``animation``.  And we say that it is by default equal to ``null``.  When we go to reset the routes, that is when we set it ``reset``.  A check is done inside of ``AppNavigationContainer`` and this will let us know if we should return the ``NavigationCard`` - which does the great thing that is the card swipe, or we go straight to rendering a card which, because it's just transitioner, transitioner has no animation and gives us a clean restart.  However, we are setting this is the reducer, which means that we do need to reset the value of ``animation`` for future calls or funky things start happening.
+
+As a side not about using the NavigationTransitioner, all scenes fed to it do require a ``key`` prop.
 
 Project Outline
 ===============

@@ -33,6 +33,7 @@ const initialState =  {
     home: {
         index: 0,
         key: 'home',
+        animation: null,
         routes: [
             {
                 key: TAB_SCENE.HOME.BASE,
@@ -46,6 +47,7 @@ const initialState =  {
     info: {
         index: 0,
         key: 'info',
+        animation: null,
         routes: [
             {
                 key: TAB_SCENE.INFO.BASE,
@@ -59,12 +61,13 @@ const initialState =  {
     profile: {
         index: 0,
         key: 'profile',
+        animation: null,
         routes: [
             {
                 key: TAB_SCENE.PROFILE.BASE,
                 dock: DOCK.TAB_BAR,
                 inactiveTabIcon: TAB_ICONS.PROFILE,
-                activeTabIcon: TAB_ICONS.HOME_ACTIVE,
+                activeTabIcon: TAB_ICONS.PROFILE_ACTIVE,
             }
         ],
     },
@@ -81,7 +84,10 @@ function NavigationReducer(state = initialState, action) {
 
             const activeTabIndex  = state.tabs.index;
             const activeTabKey    = state.tabs.routes[activeTabIndex].key
-            const scenes          = state[activeTabKey];
+            const scenes          = {
+                ...state[activeTabKey],
+                animation: null,
+            }
             const nextScenes      = NavigationStateUtils.push(scenes, action.route);
 
             if (scenes !== nextScenes) {
@@ -110,10 +116,13 @@ function NavigationReducer(state = initialState, action) {
         }
 
         case ACTIONS.RESET_ROUTES: {
-            const scenes       = state[action.tabKey];
-            const nextChildren = scenes.routes.slice(0, 1);
-            const nextIndex    = 0;
-            const nextScenes   = NavigationStateUtils.reset(scenes, nextChildren, nextIndex);
+            const prevScenes        = {
+                ...state[action.tabKey],
+                animation: 'reset',
+            }
+            const nextChildren      = prevScenes.routes.slice(0, 1);
+            const nextIndex         = 0;
+            const nextScenes        = NavigationStateUtils.reset(prevScenes, nextChildren, nextIndex);
 
             return {
                ...state,
@@ -135,104 +144,10 @@ function NavigationReducer(state = initialState, action) {
                 }
             }
         }
+
+        default:
+            return state;
     }
-
-    return state;
 }
-
-// ========================================================
-// Helpers
-// ========================================================
-
-// function getTabState(state, tabIndex) {
-
-//     let tabState = state.children[tabIndex];
-
-//     return tabState;
-// }
-
-// function pushToTabStack(state, tabIndex, tabStackChild) {
-
-//     let tab             = getTabState(state, tabIndex);
-//     let tabStack        = tab.children;
-//     let topOfStackIndex = tab.children.length - 1;
-//     let topOfStack      = tabStack[topOfStackIndex];
-
-//     // check for duplicate state
-//     if ( topOfStack.key === tabStackChild.key ) {
-//         return state;
-//     }
-
-//     let tabSackState = {
-//         ...state,
-//         children: [
-//             ...state.children.slice(0, tabIndex),
-//             {
-//                 ...tab,
-//                 index: tab.index + 1,
-//                 children: [
-//                     ...tabStack.slice(0, tabStack.length),
-//                     tabStackChild,
-//                 ]
-//             },
-//             ...state.children.slice(tabIndex + 1),
-
-//         ]
-//     }
-
-//     return tabSackState;
-// }
-
-// function popFromTabStack(state, tabIndex) {
-
-//     let tab      = getTabState(state, tabIndex);
-//     let tabStack = tab.children;
-
-//     let tabSackState = {
-//         ...state,
-//         children: [
-//             ...state.children.slice(0, tabIndex),
-//             {
-//                 ...tab,
-//                 index: tab.index - 1,
-//                 children: [
-//                     // remove last item from array
-//                     ...tabStack.slice(0, -1),
-//                 ]
-//             },
-//             ...state.children.slice(tabIndex + 1),
-
-//         ]
-//     }
-
-//     return tabSackState;
-// }
-
-// function resetTabStack(state, tabIndex) {
-
-//     let tab      = getTabState(state, tabIndex);
-//     let tabStack = tab.children;
-
-//     let tabSackState = {
-//         ...state,
-//         children: [
-//             ...state.children.slice(0, tabIndex),
-//             {
-//                 ...tab,
-//                 index: 0,
-//                 children: [
-//                     // reset to first item in stack
-//                     {
-//                         ...tabStack.slice(0, 1)[0]
-//                     }
-//                 ]
-//             },
-//             ...state.children.slice(tabIndex + 1),
-
-//         ]
-//     }
-
-//     return tabSackState
-// }
 
 module.exports = NavigationReducer;
