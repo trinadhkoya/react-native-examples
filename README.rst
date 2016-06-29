@@ -2,7 +2,7 @@
 React Native Examples
 *********************
 
-Welcome to **React Native Examples**: A Repository that aims to provide some insight into setting up some of the more interesting aspects of React-Native.  This repo currently features the following examples.
+Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  This repo currently features the following examples.
 
 * **Navigation**
     - NavigationExperimental + Redux
