@@ -15,8 +15,7 @@ const {
 } = NavigationExperimental;
 
 // first party
-import CONST, { TAB_ICONS, TAB_SCENE, DOCK  } from '../../constants/Navigation';
-import * as ACTIONS from '../../constants/ActionTypes';
+import { NAV, ICONS, ACTIONS } from '../../constants/constants';
 
 const initialState =  {
     // Three tabs.
@@ -36,10 +35,10 @@ const initialState =  {
         animation: null,
         routes: [
             {
-                key: TAB_SCENE.HOME.BASE,
-                dock: DOCK.TAB_BAR,
-                inactiveTabIcon: TAB_ICONS.HOME,
-                activeTabIcon: TAB_ICONS.HOME_ACTIVE,
+                key: NAV.TAB_SCENE.HOME.BASE,
+                dock: NAV.DOCK.TAB_BAR,
+                inactiveTabIcon: ICONS.HOME,
+                activeTabIcon: ICONS.HOME_ACTIVE,
             }
         ],
     },
@@ -50,10 +49,10 @@ const initialState =  {
         animation: null,
         routes: [
             {
-                key: TAB_SCENE.INFO.BASE,
-                dock: DOCK.TAB_BAR,
-                inactiveTabIcon: TAB_ICONS.INFO,
-                activeTabIcon: TAB_ICONS.INFO_ACTIVE,
+                key: NAV.TAB_SCENE.INFO.BASE,
+                dock: NAV.DOCK.TAB_BAR,
+                inactiveTabIcon: ICONS.INFO,
+                activeTabIcon: ICONS.INFO_ACTIVE,
             }
         ],
     },
@@ -64,10 +63,10 @@ const initialState =  {
         animation: null,
         routes: [
             {
-                key: TAB_SCENE.PROFILE.BASE,
-                dock: DOCK.TAB_BAR,
-                inactiveTabIcon: TAB_ICONS.PROFILE,
-                activeTabIcon: TAB_ICONS.PROFILE_ACTIVE,
+                key: NAV.TAB_SCENE.PROFILE.BASE,
+                dock: NAV.DOCK.TAB_BAR,
+                inactiveTabIcon: ICONS.PROFILE,
+                activeTabIcon: ICONS.PROFILE_ACTIVE,
             }
         ],
     },

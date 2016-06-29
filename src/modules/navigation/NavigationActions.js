@@ -4,7 +4,7 @@
 
 'use strict'
 
-import * as ACTIONS from '../../constants/ActionTypes';
+import { ACTIONS } from '../../constants/constants';
 
 
 // ========================================================

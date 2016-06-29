@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import * as STYLES from '../../../constants/Styles';
+import { STYLES } from '../../../constants/constants';
 
 // ========================================================
 // Component

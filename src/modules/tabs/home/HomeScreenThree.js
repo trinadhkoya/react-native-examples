@@ -14,8 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import * as STYLES from '../../../constants/Styles';
-import * as ACTIONS from '../../../constants/ActionTypes';
+import { ACTIONS, STYLES } from '../../../constants/constants';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
