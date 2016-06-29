@@ -40,3 +40,9 @@ export const selectTab = (tabKey) => {
     }
 }
 
+export const toggleModal = (modalKey) => {
+    return {
+        type: ACTIONS.TOGGLE_MODAL,
+        modalKey: modalKey,
+    }
+}

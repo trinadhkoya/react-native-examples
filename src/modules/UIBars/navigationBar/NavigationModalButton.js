@@ -32,7 +32,7 @@ const NavigationModalButton = (props) => (
 function _onPress(props) {
     const tabKey = props.navigationState.key;
 
-    props.onNavigate(NavActions.pushRoute(NAV.MODALS.SEARCH, { animation: NAV.VERTICAL }));
+    props.onNavigate(NavActions.toggleModal('modalKey'));
 }
 
 // ========================================================

@@ -5,7 +5,7 @@
 'use strict'
 
 // core
-import { NavigationExperimental } from 'react-native'
+import { NavigationExperimental, Animated } from 'react-native'
 
 const {
     CardStack: NavigationCardStack,
@@ -19,6 +19,8 @@ import { NAV, ICONS, ACTIONS } from '../../constants/constants';
 
 const initialState =  {
     // Three tabs.
+    isModalActive: false,
+    animation: new Animated.Value(0),
     tabs: {
         index: 0,
         key: 'root',
@@ -141,6 +143,13 @@ function NavigationReducer(state = initialState, action) {
                     ...state,
                     tabs: nextTabs,
                 }
+            }
+        }
+
+        case ACTIONS.TOGGLE_MODAL: {
+            return {
+                ...state,
+                isModalActive: !state.isModalActive,
             }
         }
 

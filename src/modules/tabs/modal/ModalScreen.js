@@ -15,6 +15,8 @@ import {
 
 // first party
 import { STYLES } from '../../../constants/constants';
+import * as NavActions from '../../navigation/NavigationActions';
+import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
 // Component
@@ -24,6 +26,8 @@ class ModalScreen extends Component {
 
     constructor(props) {
         super(props);
+
+        this._onPress = this._onPress.bind(this);
     }
 
     render() {
@@ -33,8 +37,22 @@ class ModalScreen extends Component {
         return (
             <View style={styles.container}>
                 <Text>ModalScreen</Text>
+
+                <RNETouchable
+                    accessibilityTraits="button"
+                    onPress={ () => { this._onPress() } }
+                    style={styles.buttonContainer} >
+                    <Text>Close</Text>
+                </RNETouchable>
+
             </View>
         );
+    }
+
+    _onPress() {
+        const tabKey = this.props.navigationState.key
+
+        this.props.onNavigate(NavActions.toggleModal('modalKey'));
     }
 }
 

@@ -33,6 +33,7 @@ import * as NavActions from '../navigation/NavigationActions';
 import Scene from './Scene';
 import NavigationDock from './NavigationDock';
 import NavigationBar from './NavigationBar';
+import Modal from './Modal';
 
 // ========================================================
 // Component
@@ -45,7 +46,7 @@ class NavigationContainer extends Component {
 
         this._renderCard = this._renderCard.bind(this);
         this._renderScene = this._renderScene.bind(this);
-        this._renderNavigationBar = this._renderNavigationBar.bind(this);
+        this._renderOverlay = this._renderOverlay.bind(this);
     }
 
     render() {
@@ -58,12 +59,13 @@ class NavigationContainer extends Component {
 
         return (
             <View style={styles.container}>
+
                 <NavigationTransitioner
                     key={'stack_' + tabKey}
                     configureTransition={ () => { return configTransition }}
                     onNavigate={this.props.onNavigate}
                     navigationState={scenes}
-                    renderOverlay={this._renderNavigationBar}
+                    renderOverlay={this._renderOverlay}
                     renderScene={this._renderCard}
                     style={styles.navigationCardStack}
                 />
@@ -73,16 +75,22 @@ class NavigationContainer extends Component {
                     onNavigate={this.props.onNavigate}
                     scenes={scenes}
                 />
+
+                <Modal
+                    navigationState={this.props.navigationState}
+                    onNavigate={this.props.onNavigate}
+                    scenes={scenes}
+                />
             </View>
         );
     }
 
-    _renderNavigationBar(sceneProps) {
+    _renderOverlay(sceneProps) {
         const showNavigationBar = sceneProps.scene.route.navigationBar;
 
         // hide navigationBar
         if (!showNavigationBar) {
-            return null;
+            return this._renderCard(sceneProps);
         }
 
         return (
