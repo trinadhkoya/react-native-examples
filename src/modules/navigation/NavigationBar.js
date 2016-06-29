@@ -20,6 +20,7 @@ const {
 
 // first party
 import NavigationBarBackButton from '../UIBars/navigationBar/NavigationBarBackButton';
+import NavigationModalButton from '../UIBars/navigationBar/NavigationModalButton';
 
 // ========================================================
 // Component
@@ -65,8 +66,10 @@ class NavigationBar extends Component {
         );
     }
 
-     _renderRightComponent() {
-        return null
+     _renderRightComponent(props) {
+        return (
+            <NavigationModalButton {...props} />
+        )
     }
 }
 

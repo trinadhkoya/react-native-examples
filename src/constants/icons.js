@@ -20,3 +20,4 @@ export const PROFILE_ACTIVE = require('../modules/UIBars/tabBar/images/icon-prof
 // ========================================================
 
 export const BACK_BUTTON    = require('../modules/UIBars/navigationBar/images/back-icon.png');
+export const SEARCH         = require('../modules/UIBars/navigationBar/images/search.png');
