@@ -19,7 +19,7 @@ const {
 } = NavigationExperimental;
 
 // first party
-import NavigationBarBackButton from '../uibars/navigationBar/NavigationBarBackButton';
+import NavigationBarBackButton from '../UIBars/navigationBar/NavigationBarBackButton';
 
 // ========================================================
 // Component
