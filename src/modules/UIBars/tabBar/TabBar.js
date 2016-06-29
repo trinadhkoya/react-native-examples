@@ -51,6 +51,10 @@ class TabBar extends Component {
             let activeTabIcon   = tab.routes[tabSceneIndex].activeTabIcon;
             let inactiveTabIcon = tab.routes[tabSceneIndex].inactiveTabIcon;
 
+            function _onPress() {
+                onNavigate(NavActions.selectTab(route.key))
+            }
+
             return (
                 <TabBarItem
                     key={index}
@@ -58,7 +62,7 @@ class TabBar extends Component {
                     isActive={tabIndex === index}
                     activeTabIcon={activeTabIcon}
                     inactiveTabIcon={inactiveTabIcon}
-                    onPress={ () => { onNavigate({ type: ACTIONS.SELECT_TAB, tabKey: route.key })}}
+                    onPress={_onPress}
                 />
             )
         })

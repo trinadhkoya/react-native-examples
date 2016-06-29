@@ -15,6 +15,7 @@ import {
 
 // first party
 import { ACTIONS, STYLES } from '../../../constants/constants';
+import * as NavActions from '../../navigation/NavigationActions';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
@@ -51,7 +52,7 @@ class HomeScreenThree extends Component {
     _handleButtonPress() {
         const { onNavigate } = this.props;
 
-        onNavigate({ type: ACTIONS.RESET_ROUTES, tabKey: 'home' });
+        onNavigate(onNavigate(NavActions.resetRoutes('home')))
     }
 }
 

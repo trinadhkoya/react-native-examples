@@ -85,7 +85,7 @@ function NavigationReducer(state = initialState, action) {
             const activeTabKey    = state.tabs.routes[activeTabIndex].key
             const scenes          = {
                 ...state[activeTabKey],
-                animation: null,
+                animation: action.animation,
             }
             const nextScenes      = NavigationStateUtils.push(scenes, action.route);
 
@@ -117,9 +117,9 @@ function NavigationReducer(state = initialState, action) {
                 ...state[action.tabKey],
                 animation: 'reset',
             }
-            const nextChildren      = prevScenes.routes.slice(0, 1);
-            const nextIndex         = 0;
-            const nextScenes        = NavigationStateUtils.reset(prevScenes, nextChildren, nextIndex);
+            const nextChildren = prevScenes.routes.slice(0, 1);
+            const nextIndex    = 0;
+            const nextScenes   = NavigationStateUtils.reset(prevScenes, nextChildren, nextIndex);
 
             return {
                ...state,
@@ -131,7 +131,7 @@ function NavigationReducer(state = initialState, action) {
 
         // navigate to a new tab stack
         case ACTIONS.SELECT_TAB: {
-            const nextTabs  = NavigationStateUtils.jumpTo(state.tabs, action.tabKey);
+            const nextTabs = NavigationStateUtils.jumpTo(state.tabs, action.tabKey);
 
             if (nextTabs !== state.tabs) {
                 return {

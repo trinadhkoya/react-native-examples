@@ -11,10 +11,11 @@ import { ACTIONS } from '../../constants/constants';
 // Action Creators
 // ========================================================
 
-export const pushRoute = (route) => {
+export const pushRoute = (route, { animation=null }) => {
     return {
         type: ACTIONS.PUSH_ROUTE,
         route: route,
+        animation: animation
     }
 }
 

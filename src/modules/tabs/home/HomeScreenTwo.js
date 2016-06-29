@@ -15,6 +15,7 @@ import {
 
 // first party
 import { ACTIONS, STYLES, NAV } from '../../../constants/constants';
+import * as NavActions from '../../navigation/NavigationActions';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
@@ -51,7 +52,7 @@ class HomeScreenTwo extends Component {
     _handleHomeScreenTwoClick() {
         const { onNavigate } = this.props;
 
-        onNavigate({ type: ACTIONS.PUSH_ROUTE, route: NAV.HOME_ROUTES.HOME_THREE });
+        onNavigate(NavActions.pushRoute( NAV.HOME_ROUTES.HOME_THREE, {}));
     }
 }
 
