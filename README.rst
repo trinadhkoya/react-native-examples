@@ -13,6 +13,8 @@ Welcome to **React Native Examples**.  This Repository aims to provide some insi
 
 * **Redux Remote Dev Tools**
 
+* ****
+
 Prerequisites
 =============
 
@@ -71,6 +73,43 @@ From here you can choose the simulator to use and then build the project.
 
 Overview
 ========
+
+Project Structure
+-----------------
+
+while React Native is still young, you may be wondering a good way to organize your project, a general rule of thumb is to borrow from React projects and iterate from there.  Here are two common ways to organize your React/React Native project:
+
+**Nature Based Structure**
+
+.. code-block:: bash
+
+    ├── actions
+    ├── components
+    ├── constants
+    ├── app.js
+    ├── libs
+    ├── stores
+    └── main.js
+
+`Nature Based Structure`_
+
+**Structure 2**
+
+.. code-block:: bash
+
+    ├── common
+    ├── constants
+    │   └── colors.js
+    ├── modules
+    │   └── moduleName
+    |       ├── moduleIndex.js
+    │       ├── moduleNameReducer.js
+    │       └── moduleNameActions.js
+    └── main.js
+
+`Domain Based Structure`_
+
+For this project I wanted to explore a ``Domain`` based structure because I have been on large projects and ran into some issues with a pure ``Nature`` based structure.
 
 Navigation
 ----------
@@ -140,5 +179,5 @@ TO DO
 .. _`Get some history of the project from the original creators`: https://github.com/ericvicenti/navigation-rfc
 .. _`Then read this good intro article about NavigationExperimental`: https://medium.com/@dabit3/first-look-react-native-navigator-experimental-9a7cf39a615b#.b46acu7wc
 .. _`Then see what the community is doing with NavigationExperimental and Redux`: https://github.com/jlyman/RN-NavigationExperimental-Redux-Example
-
-
+.. _`Nature Based Structure`: http://survivejs.com/react/advanced-techniques/structuring-react-projects/
+.. _`Domain Based Structure`: http://marmelab.com/blog/2015/12/17/react-directory-structure.html
