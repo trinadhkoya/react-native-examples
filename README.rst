@@ -181,9 +181,6 @@ Navigation
 
 TO DO
 =====
-
-- NavigationHeader
-- Back/Pop Actions
 - Modals
 - Documentation explaining NavigationExperimental and the choices made in this project
 
