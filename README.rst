@@ -13,7 +13,7 @@ Welcome to **React Native Examples**.  This Repository aims to provide some insi
 
 * **Redux Remote Dev Tools**
 
-* ****
+* **Project Structure**
 
 Prerequisites
 =============
@@ -73,6 +73,43 @@ From here you can choose the simulator to use and then build the project.
 
 Overview
 ========
+
+Project Structure
+-----------------
+
+while React Native is still young, you may be wondering a good way to organize your project, a general rule of thumb is to borrow from React projects and iterate from there.  Here are two common ways to organize your React/React Native project:
+
+**Nature Based Structure**
+
+.. code-block:: bash
+
+    ├── actions
+    ├── components
+    ├── constants
+    ├── app.js
+    ├── libs
+    ├── stores
+    └── main.js
+
+`Nature Based Structure`_
+
+**Structure 2**
+
+.. code-block:: bash
+
+    ├── common
+    ├── constants
+    │   └── colors.js
+    ├── modules
+    │   └── moduleName
+    |       ├── moduleIndex.js
+    │       ├── moduleNameReducer.js
+    │       └── moduleNameActions.js
+    └── main.js
+
+`Domain Based Structure`_
+
+For this project I wanted to explore a ``Domain`` based structure because I have been on large projects and ran into some issues with a pure ``Nature`` based structure.
 
 Navigation
 ----------
