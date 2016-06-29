@@ -15,24 +15,6 @@ Welcome to **React Native Examples**.  This Repository aims to provide some insi
 |    :align: left                                         |     :align: left                                               |
 +---------------------------------------------------------+----------------------------------------------------------------+
 
-**Navigation Without Header**
-
-
-.. image:: docs/images/navigation-experimental-demo.gif
-    :alt: Navigation Experimental without Header
-    :width: 184.5
-    :height: 342.50
-    :align: left
-
-**Navigation With Header**
-
-.. image:: docs/images/navigation-experimental-demo-2.gif
-    :alt: Navigation Experimental with Header
-    :width: 184.5
-    :height: 342.50
-    :align: left
-
-
 * **Navigation Features**
     - NavigationExperimental + Redux
     - CardStack
