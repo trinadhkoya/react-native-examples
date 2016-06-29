@@ -14,9 +14,10 @@ import {
 } from 'react-native';
 
 // first party
-import * as ACTIONS from '../../../constants/ActionTypes';
-import TabBarItem from './TabBarItem';
+import { ACTIONS } from '../../../constants/constants';
 import * as NavActions from '../NavigationActions'
+import TabBarItem from './TabBarItem';
+
 
 // ========================================================
 // Component

@@ -1,5 +1,5 @@
 // ========================================================
-// AppNavigationContainer
+// NavigationContainer
 // ========================================================
 
 // core
@@ -28,17 +28,17 @@ const {
 import { connect } from 'react-redux';
 
 // first party
-import * as ACTIONS from '../../constants/ActionTypes';
+import { ACTIONS } from '../../constants/constants';
 import * as NavActions from '../navigation/NavigationActions';
 import Scene from './Scene';
-import Dock from './Dock';
+import NavigationDock from './NavigationDock';
 import NavigationBar from './NavigationBar';
 
 // ========================================================
 // Component
 // ========================================================
 
-class AppNavigationContainer extends Component {
+class NavigationContainer extends Component {
 
     constructor(props) {
         super(props)
@@ -68,7 +68,7 @@ class AppNavigationContainer extends Component {
                     style={styles.navigationCardStack}
                 />
 
-                <Dock
+                <NavigationDock
                     navigationState={this.props.navigationState}
                     onNavigate={this.props.onNavigate}
                     scenes={scenes}
@@ -150,5 +150,5 @@ const mapDispatchToProps = (dispatch) => {
 // Exports
 // ========================================================
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppNavigationContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationContainer)
 

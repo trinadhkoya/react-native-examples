@@ -14,8 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import CONST, { DOCK } from '../../constants/Navigation';
-import TabBar from './tabbar/TabBar';
+import TabBar from './tabBar/TabBar';
 
 // ========================================================
 // Component

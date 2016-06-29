@@ -44,8 +44,14 @@ class NavigationBar extends Component {
         );
     }
 
-    _renderLeftComponent() {
-        return null
+    _renderLeftComponent(props) {
+        if (props.scene.index === 0) {
+            return null
+        }
+
+        return (
+            <Text>hold</Text>
+        )
     }
 
     _renderTitleComponent() {
