@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import TabBar from './tabBar/TabBar';
+import TabBar from '../uibars/tabBar/TabBar';
 
 // ========================================================
 // Component

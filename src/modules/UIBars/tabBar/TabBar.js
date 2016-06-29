@@ -15,7 +15,7 @@ import {
 
 // first party
 import { ACTIONS } from '../../../constants/constants';
-import * as NavActions from '../NavigationActions'
+import * as NavActions from '../../navigation/NavigationActions'
 import TabBarItem from './TabBarItem';
 
 
