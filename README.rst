@@ -94,7 +94,7 @@ while React Native is still young, you may be wondering a good way to organize y
 
 `Nature Based Structure`_
 
-**Structure 2**
+**Domain Based Structure**
 
 .. code-block:: bash
 
