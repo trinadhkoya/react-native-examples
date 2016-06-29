@@ -85,6 +85,7 @@ while React Native is still young, you may be wondering a good way to organize y
 
     ├── actions
     ├── components
+    ├── reducers
     ├── constants
     ├── app.js
     ├── libs
