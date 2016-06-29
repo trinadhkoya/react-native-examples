@@ -44,20 +44,15 @@ class Modal extends Component {
     render() {
         const { navigationState, onNavigate, scene } = this.props;
 
-        // const TAB_SCREENS = {
-        //     HomeScreen: HomeScreen,
-        //     HomeScreenTwo: HomeScreenTwo,
-        //     HomeScreenThree: HomeScreenThree,
-        //     InfoScreen: InfoScreen,
-        //     ProfileScreen: ProfileScreen,
-        //     ModalScreen: ModalScreen,
-        // }
+        const MODALS = {
+            ModalScreen: ModalScreen,
+        }
 
-        // let Component = TAB_SCREENS[scene.route.key];
+        let Component = MODALS[navigationState.modal.modalKey];
 
         return (
             <Animated.View style={[ styles.container, this.modalAnimationStyles() ]}>
-                <ModalScreen navigationState={navigationState} onNavigate={onNavigate}/>
+                <Component navigationState={navigationState} onNavigate={onNavigate}/>
             </Animated.View>
         )
     }

@@ -19,6 +19,11 @@ import { NAV, ICONS, ACTIONS } from '../../constants/constants';
 
 const initialState =  {
     // Three tabs.
+     modal: {
+        isModalActive: false,
+        animation: new Animated.Value(0),
+        modalKey: NAV.MODALS.MODAL_SCREEN,
+    },
     tabs: {
         index: 0,
         key: 'root',
@@ -73,11 +78,6 @@ const initialState =  {
             }
         ],
     },
-    modal: {
-        isModalActive: false,
-        animation: new Animated.Value(0),
-    }
-
 }
 
 // ========================================================
@@ -155,6 +155,7 @@ function NavigationReducer(state = initialState, action) {
                 modal: {
                     ...state.modal,
                     isModalActive: !state.modal.isModalActive,
+                    modalKey: action.modalKey,
                 }
             }
         }

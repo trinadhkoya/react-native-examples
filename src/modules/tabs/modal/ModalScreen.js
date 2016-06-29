@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 // first party
-import { STYLES } from '../../../constants/constants';
+import { STYLES, NAV } from '../../../constants/constants';
 import * as NavActions from '../../navigation/NavigationActions';
 import RNETouchable from '../../../common/components/RNETouchable';
 
@@ -52,7 +52,7 @@ class ModalScreen extends Component {
     _onPress() {
         const tabKey = this.props.navigationState.key
 
-        this.props.onNavigate(NavActions.toggleModal('modalKey'));
+        this.props.onNavigate(NavActions.toggleModal(NAV.MODALS.MODAL_SCREEN));
     }
 }
 

@@ -16,6 +16,10 @@ export const TAB = {
     MODAL  : 'modal',
 }
 
+export const MODALS = {
+    MODAL_SCREEN: 'ModalScreen',
+}
+
 export const TAB_SCENE = {
     HOME: {
         BASE: 'HomeScreen',
@@ -56,15 +60,5 @@ export const HOME_ROUTES = {
         navigationBar: true,
         inactiveTabIcon: ICONS.HOME,
         activeTabIcon: ICONS.HOME_ACTIVE,
-    }
-}
-
-export const MODALS = {
-    SEARCH: {
-        key: TAB_SCENE.MODAL.BASE,
-        dock: null,
-        navigationBar: false,
-        inactiveTabIcon: ICONS.PROFILE,
-        activeTabIcon: ICONS.PROFILE_ACTIVE,
     }
 }
