@@ -94,6 +94,36 @@ Navigation
 
     - Tabbar
     - Navigation Actions:  push, jumpToTab, reset tab stack
+    - Custom Navigation Reducers
+
+**What are some good resources to expanding on this demo/ learn more about NavigationExperimental?**
+
+.. epigraph::
+
+    I have been working with NavigationExperimental for the past 3 months.  In that time I used everything from the out-of-the-box NavigationContainer, ReactNative Reducers and ``NavigationStateUtils``, to building my own custom NavigationContainer and reducers.  The  ``NavigationStateUtils`` provided by ``NavigationExperimental`` are awesome, so keep rocking them.
+
+    As I mentioned above, documentation is sparse, so the best way to learn is by going through these resources first:
+
+    `Get some history of the project from the original creators`_
+
+    `Then read this good intro article about NavigationExperimental`_
+
+    `Then see what the community is doing with NavigationExperimental and Redux`_
+
+    After you have a bsaic understanding, I recommend diving into React Native source code and see what ``NavigationExperimental`` under the hood.  I usually open up a new browser window dedicated to my ReactNative source code and open up the following tabs in this order:
+
+    https://github.com/ericvicenti/navigation-rfc/blob/master/Docs/Navigation.md
+    https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationStateUtils.js
+    https://github.com/facebook/react-native/blob/0.28-stable/Libraries/CustomComponents/NavigationExperimental/NavigationCard.js
+    https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationTransitioner.js
+    https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/NavigationTypeDefinition.js
+    https://github.com/facebook/react-native/blob/0.28-stable/Libraries/NavigationExperimental/Reducer/NavigationScenesReducer.js
+    https://github.com/facebook/react-native/blob/81c62c5f41da2e34f0c0e19ca38843918c23c32b/Libraries/CustomComponents/NavigationExperimental/NavigationCardStackStyleInterpolator.js
+
+    Always make sure you are on the right branch!  ``NavigationExperimental`` is moving so quick that there will be a lot of differences between each branch.
+
+    Happy learning!
+
 
 TO DO
 =====
@@ -107,5 +137,8 @@ TO DO
 .. _`a few articles`: https://medium.com/@dabit3/first-look-react-native-navigator-experimental-9a7cf39a615b#.vanf1kcmh
 .. _`excellent repositories`: https://github.com/jlyman/RN-NavigationExperimental-Redux-Example
 .. _`React Native`: http://facebook.github.io/react-native/docs/getting-started.html
+.. _`Get some history of the project from the original creators`: https://github.com/ericvicenti/navigation-rfc
+.. _`Then read this good intro article about NavigationExperimental`: https://medium.com/@dabit3/first-look-react-native-navigator-experimental-9a7cf39a615b#.b46acu7wc
+.. _`Then see what the community is doing with NavigationExperimental and Redux`: https://github.com/jlyman/RN-NavigationExperimental-Redux-Example
 
 

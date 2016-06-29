@@ -4,13 +4,20 @@ Change Log
 
 All enhancements to React-Native-Examples will be documented in this file. This project adheres to `Semantic Versioning`_.
 
+[2016-06-29]
+============
+
+**UPDATES**
+
+* updated the project README.rst - new section on learning NavigationExperimental
+
 [2016-06-28]
 ============
 
 **UPDATES**
 
 * altered the import pattern for constants - index to act as a proxy
-* updated the README.rst
+* updated the project README.rst
 
 **ADDED**
 
