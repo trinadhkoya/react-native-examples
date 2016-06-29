@@ -11,6 +11,10 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 
 * updated the project README.rst - new section on learning NavigationExperimental
 
+**ADDED**
+
+* added NavigationBar (NavigationHeader) to the demo
+
 [2016-06-28]
 ============
 

@@ -2,19 +2,50 @@
 React Native Examples
 *********************
 
-Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  This repo currently features the following examples.
+Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  Check it out:
 
-* **Navigation**
+
++---------------------------------------------------------+----------------------------------------------------------------+
+| Navigation Without Header                               | Navigation With Header                                         |
++=========================================================+================================================================+
+| .. image:: docs/images/navigation-experimental-demo.gif |  .. image:: docs/images/navigation-experimental-demo-2.gif     |
+|    :alt: Navigation Experimental without Header         |     :alt: Navigation Experimental with Header                  |
+|    :width: 184.5                                        |     :width: 184.5                                              |
+|    :height: 342.50                                      |     :height: 342.5                                             |
+|    :align: left                                         |     :align: left                                               |
++---------------------------------------------------------+----------------------------------------------------------------+
+
+**Navigation Without Header**
+
+
+.. image:: docs/images/navigation-experimental-demo.gif
+    :alt: Navigation Experimental without Header
+    :width: 184.5
+    :height: 342.50
+    :align: left
+
+**Navigation With Header**
+
+.. image:: docs/images/navigation-experimental-demo-2.gif
+    :alt: Navigation Experimental with Header
+    :width: 184.5
+    :height: 342.50
+    :align: left
+
+
+* **Navigation Features**
     - NavigationExperimental + Redux
     - CardStack
     - Tabs
-    - Android + ios
-
-.. image:: docs/images/navigation-experimental-demo.gif
+    - Supports android + ios
 
 * **Redux Remote Dev Tools**
 
+    - example of how to use in a react native project
+
 * **Project Structure**
+
+    - Domain based project structure
 
 Prerequisites
 =============
