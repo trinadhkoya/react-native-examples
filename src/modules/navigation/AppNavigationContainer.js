@@ -32,6 +32,7 @@ import * as ACTIONS from '../../constants/ActionTypes';
 import * as NavActions from '../navigation/NavigationActions';
 import Scene from './Scene';
 import Dock from './Dock';
+import NavigationBar from './NavigationBar';
 
 // ========================================================
 // Component
@@ -44,6 +45,7 @@ class AppNavigationContainer extends Component {
 
         this._renderCard = this._renderCard.bind(this);
         this._renderScene = this._renderScene.bind(this);
+        this._renderNavigationBar = this._renderNavigationBar.bind(this);
     }
 
     render() {
@@ -61,7 +63,8 @@ class AppNavigationContainer extends Component {
                     configureTransition={ () => { return configTransition }}
                     onNavigate={this.props.onNavigate}
                     navigationState={scenes}
-                    renderScene={ (props) => { return this._renderCard(props) }}
+                    renderOverlay={this._renderNavigationBar}
+                    renderScene={this._renderCard}
                     style={styles.navigationCardStack}
                 />
 
@@ -74,6 +77,11 @@ class AppNavigationContainer extends Component {
         );
     }
 
+    _renderNavigationBar(sceneProps) {
+        return (
+            <NavigationBar {...sceneProps} />
+        )
+    }
 
     _renderCard(sceneProps) {
         return (
