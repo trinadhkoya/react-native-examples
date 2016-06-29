@@ -33,7 +33,7 @@ Quickstart
 
 .. code-block:: bash
 
-    $ git clone
+    $ git clone https://github.com/tkjone/react-native-examples.git
 
 
 2. Move into your local react_native_examples
@@ -41,7 +41,7 @@ Quickstart
 
 .. code-block:: bash
 
-    $ cd react_native_examples
+    $ cd react-native-examples
 
 
 3. Install Dependencies
