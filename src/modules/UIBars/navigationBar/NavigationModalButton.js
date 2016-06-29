@@ -9,7 +9,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, Platform } from 'react-native';
 
 // first party
-import { ICONS, ACTIONS } from '../../../constants/constants';
+import { ICONS, ACTIONS, NAV } from '../../../constants/constants';
+import * as NavActions from '../../navigation/NavigationActions';
 import RNETouchable from '../../../common/components/RNETouchable';
 
 // ========================================================
@@ -31,7 +32,7 @@ const NavigationModalButton = (props) => (
 function _onPress(props) {
     const tabKey = props.navigationState.key
 
-    props.onNavigate({ type: ACTIONS.BACK_ACTION, tabKey: tabKey });
+    props.onNavigate(NavActions.pushRoute(NAV.HOME_ROUTES.HOME_THREE, {animation: 'modal'}));
 }
 
 // ========================================================

@@ -84,9 +84,16 @@ class NavigationContainer extends Component {
     }
 
     _renderCard(sceneProps) {
+        const animation = sceneProps.navigationState.animation;
+        const isModal = animation === 'modal';
+        const horizontalAnimation = undefined;
+        const verticalAnimation = NavigationCard.CardStackStyleInterpolator.forVertical(sceneProps);
+        const cardStyle = isModal ? verticalAnimation : horizontalAnimation;
+
         return (
             <NavigationCard
                 {...sceneProps}
+                style={cardStyle}
                 key={sceneProps.scene.route.key}
                 renderScene={this._renderScene}
             />
