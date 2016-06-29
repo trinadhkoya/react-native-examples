@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     button: {
-        height: 24,
-        width: 24,
+        height: 20,
+        width: 20,
         margin: Platform.OS === 'ios' ? 10 : 16,
         resizeMode: 'contain'
     }

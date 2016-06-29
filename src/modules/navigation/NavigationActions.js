@@ -35,7 +35,7 @@ export const resetRoutes = (tabKey) => {
 export const selectTab = (tabKey) => {
     return {
         type: ACTIONS.SELECT_TAB,
-        tab: tabKey
+        tabKey: tabKey
     }
 }
 

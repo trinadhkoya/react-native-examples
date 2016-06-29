@@ -132,7 +132,7 @@ function NavigationReducer(state = initialState, action) {
         // navigate to a new tab stack
         case ACTIONS.SELECT_TAB: {
             // returns an index <number>
-            const nextTabs  = NavigationStateUtils.jumpTo(state.tabs, action.tab);
+            const nextTabs  = NavigationStateUtils.jumpTo(state.tabs, action.tabKey);
 
             if (nextTabs !== state.tabs) {
                 return {
