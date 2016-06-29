@@ -4,6 +4,18 @@ Change Log
 
 All enhancements to React-Native-Examples will be documented in this file. This project adheres to `Semantic Versioning`_.
 
+[2016-06-28]
+============
+
+**UPDATES**
+
+* altered the import pattern for constants - index to act as a proxy
+* updated the README.rst
+
+**ADDED**
+
+* duration animation added to ``NavigationTransitioner``
+
 [2016-06-17]
 ============
 
