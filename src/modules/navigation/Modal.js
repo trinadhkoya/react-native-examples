@@ -33,10 +33,11 @@ class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.navigationState.isModalActive) {
-            this.toggleModal(nextProps.navigationState.isModalActive);
-        } else {
-            this.toggleModal(nextProps.navigationState.isModalActive);
+        isPrevModalActive = this.props.navigationState.modal.isModalActive === true
+        isNextModalActive = nextProps.navigationState.modal.isModalActive === true
+
+        if ( !isPrevModalActive && isNextModalActive || isPrevModalActive && !isNextModalActive ) {
+            this.toggleModal(isNextModalActive);
         }
     }
 
@@ -63,8 +64,8 @@ class Modal extends Component {
 
     modalAnimationStyles() {
         return {
-            opacity: this.props.navigationState.animation,
-            height: this.props.navigationState.animation,
+            opacity: this.props.navigationState.modal.animation,
+            height: this.props.navigationState.modal.animation,
         }
     }
 
@@ -74,10 +75,10 @@ class Modal extends Component {
         let initialValue = isActive ? 0 : Dimensions.get('window').height;
         let finalValue   = isActive ? Dimensions.get('window').height : 0;
 
-        this.props.navigationState.animation.setValue(initialValue);
+        this.props.navigationState.modal.animation.setValue(initialValue);
 
         Animated.spring(
-            this.props.navigationState.animation,
+            this.props.navigationState.modal.animation,
             {
                 toValue: finalValue,
             }

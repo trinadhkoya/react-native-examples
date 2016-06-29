@@ -19,8 +19,6 @@ import { NAV, ICONS, ACTIONS } from '../../constants/constants';
 
 const initialState =  {
     // Three tabs.
-    isModalActive: false,
-    animation: new Animated.Value(0),
     tabs: {
         index: 0,
         key: 'root',
@@ -74,7 +72,12 @@ const initialState =  {
                 activeTabIcon: ICONS.PROFILE_ACTIVE,
             }
         ],
+    },
+    modal: {
+        isModalActive: false,
+        animation: new Animated.Value(0),
     }
+
 }
 
 // ========================================================
@@ -149,7 +152,10 @@ function NavigationReducer(state = initialState, action) {
         case ACTIONS.TOGGLE_MODAL: {
             return {
                 ...state,
-                isModalActive: !state.isModalActive,
+                modal: {
+                    ...state.modal,
+                    isModalActive: !state.modal.isModalActive,
+                }
             }
         }
 
