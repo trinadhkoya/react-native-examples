@@ -28,7 +28,7 @@ const {
 import { connect } from 'react-redux';
 
 // first party
-import { ACTIONS } from '../../constants/constants';
+import { ACTIONS, NAV } from '../../constants/constants';
 import * as NavActions from '../navigation/NavigationActions';
 import Scene from './Scene';
 import NavigationDock from './NavigationDock';
@@ -78,6 +78,13 @@ class NavigationContainer extends Component {
     }
 
     _renderNavigationBar(sceneProps) {
+        const showNavigationBar = sceneProps.scene.route.navigationBar;
+
+        // hide navigationBar
+        if (!showNavigationBar) {
+            return null;
+        }
+
         return (
             <NavigationBar {...sceneProps} />
         )
@@ -85,7 +92,7 @@ class NavigationContainer extends Component {
 
     _renderCard(sceneProps) {
         const animation = sceneProps.navigationState.animation;
-        const isModal = animation === 'modal';
+        const isModal = animation === NAV.VERTICAL;
         const horizontalAnimation = undefined;
         const verticalAnimation = NavigationCard.CardStackStyleInterpolator.forVertical(sceneProps);
         const cardStyle = isModal ? verticalAnimation : horizontalAnimation;

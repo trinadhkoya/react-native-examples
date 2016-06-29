@@ -19,6 +19,7 @@ import HomeScreenTwo from '../tabs/home/HomeScreenTwo';
 import HomeScreenThree from '../tabs/home/HomeScreenThree';
 import InfoScreen from '../tabs/info/InfoScreen';
 import ProfileScreen from '../tabs/profile/ProfileScreen';
+import ModalScreen from '../tabs/modal/ModalScreen';
 
 // ========================================================
 // Component
@@ -39,6 +40,7 @@ class Scene extends Component {
             HomeScreenThree: HomeScreenThree,
             InfoScreen: InfoScreen,
             ProfileScreen: ProfileScreen,
+            ModalScreen: ModalScreen,
         }
 
         let Component = TAB_SCREENS[scene.route.key];

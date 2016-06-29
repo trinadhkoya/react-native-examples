@@ -4,14 +4,14 @@
 
 'use strict'
 
-import { ACTIONS } from '../../constants/constants';
+import { ACTIONS, NAV } from '../../constants/constants';
 
 
 // ========================================================
 // Action Creators
 // ========================================================
 
-export const pushRoute = (route, { animation=null }) => {
+export const pushRoute = (route, { animation=NAV.HORIZONTAL }) => {
     return {
         type: ACTIONS.PUSH_ROUTE,
         route: route,

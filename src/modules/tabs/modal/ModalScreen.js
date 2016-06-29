@@ -1,5 +1,5 @@
 // ========================================================
-// NavigationDock
+// ModalScreen
 // ========================================================
 
 // core
@@ -8,36 +8,32 @@ import React, {
 } from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
 // first party
-import TabBar from '../UIBars/tabBar/TabBar';
+import { STYLES } from '../../../constants/constants';
 
 // ========================================================
 // Component
 // ========================================================
 
-class NavigationDock extends Component {
+class ModalScreen extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
 
-        const { navigationState, onNavigate, scenes } = this.props;
-
-        const NAV_DOCKS = {
-            TabBar: TabBar,
-        }
-
-        // do not display dock
-        if (scenes.routes[scenes.index].dock === null) {
-            return null;
-        }
-
-        const Component = NAV_DOCKS[scenes.routes[scenes.index].dock];
+        const { onNavigate, navigationState } = this.props
 
         return (
-            <Component navigationState={navigationState} onNavigate={onNavigate} scenes={scenes} />
+            <View style={styles.container}>
+                <Text>ModalScreen</Text>
+            </View>
         );
     }
 }
@@ -46,11 +42,18 @@ class NavigationDock extends Component {
 // Styles
 // ========================================================
 
-const styles = StyleSheet.create({ });
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: STYLES.COLORS.TUMBLEWEED_BROWN,
+    },
+});
 
 // ========================================================
 // Exports
 // ========================================================
 
-module.exports = NavigationDock;
+module.exports = ModalScreen;
 

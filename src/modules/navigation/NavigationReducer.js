@@ -37,6 +37,7 @@ const initialState =  {
             {
                 key: NAV.TAB_SCENE.HOME.BASE,
                 dock: NAV.DOCK.TAB_BAR,
+                navigationBar: true,
                 inactiveTabIcon: ICONS.HOME,
                 activeTabIcon: ICONS.HOME_ACTIVE,
             }
@@ -51,6 +52,7 @@ const initialState =  {
             {
                 key: NAV.TAB_SCENE.INFO.BASE,
                 dock: NAV.DOCK.TAB_BAR,
+                navigationBar: true,
                 inactiveTabIcon: ICONS.INFO,
                 activeTabIcon: ICONS.INFO_ACTIVE,
             }
@@ -65,11 +67,12 @@ const initialState =  {
             {
                 key: NAV.TAB_SCENE.PROFILE.BASE,
                 dock: NAV.DOCK.TAB_BAR,
+                navigationBar: true,
                 inactiveTabIcon: ICONS.PROFILE,
                 activeTabIcon: ICONS.PROFILE_ACTIVE,
             }
         ],
-    },
+    }
 }
 
 // ========================================================
