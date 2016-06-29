@@ -79,7 +79,7 @@ Navigation
 
 .. epigraph::
 
-   React-Native provides three different API's for implementing Navigation:  ``Navigator``, ``NavigatorIOS`` and ``NavigationExperimental``.  Of these components, the first two are more commonly used because they provide stability and more documentation.  Having said this, over the next several months(?) ``NavigationExperimental`` will become the fully supported API for implementing navigation in React Native.
+   React-Native provides three different API's for implementing Navigation:  ``Navigator``, ``NavigatorIOS`` and ``NavigationExperimental``.  Of these components, the first two are more commonly used because they are the original navigation components which means more stability and more documentation.  Having said this, over the next several months(?) ``NavigationExperimental`` will become the fully supported API for implementing navigation in React Native.
 
 **Why would you use one over another and is there anything preventing me from using it right now?**
 
