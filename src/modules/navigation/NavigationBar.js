@@ -18,6 +18,9 @@ const {
     Header: NavigationHeader,
 } = NavigationExperimental;
 
+// first party
+import NavigationBarBackButton from '../uibars/navigationBar/NavigationBarBackButton';
+
 // ========================================================
 // Component
 // ========================================================
@@ -50,7 +53,7 @@ class NavigationBar extends Component {
         }
 
         return (
-            <Text>hold</Text>
+            <NavigationBarBackButton {...props} />
         )
     }
 
@@ -76,6 +79,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
+
 
 // ========================================================
 // Exports

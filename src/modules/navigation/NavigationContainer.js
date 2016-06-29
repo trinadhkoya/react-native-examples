@@ -132,7 +132,7 @@ const mapDispatchToProps = (dispatch) => {
         onNavigate: (action) => {
             switch (action.type) {
                 case ACTIONS.BACK_ACTION:
-                    return dispatch(NavActions.popRoute());
+                    return dispatch(NavActions.popRoute(action.tabKey));
                 case ACTIONS.PUSH_ROUTE:
                     return dispatch(NavActions.pushRoute(action.route));
                 case ACTIONS.RESET_ROUTES:

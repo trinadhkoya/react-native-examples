@@ -100,15 +100,13 @@ function NavigationReducer(state = initialState, action) {
 
         // pop from tab scene stack
         case ACTIONS.POP_ROUTE: {
-            const route      = action.route;
-            const tabs       = state.tabs;
-            const scenes     = state[tabKey];
+            const scenes     = state[action.tabKey];
             const nextScenes = NavigationStateUtils.pop(scenes);
 
             if (scenes !== nextScenes) {
                 return {
                    ...state,
-                   [tabKey]: nextScenes,
+                   [action.tabKey]: nextScenes,
                 };
             }
             break;

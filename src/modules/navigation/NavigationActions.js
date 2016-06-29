@@ -18,10 +18,10 @@ export const pushRoute = (route) => {
     }
 }
 
-export const popRoute = () => {
+export const popRoute = (tabKey) => {
     return {
         type: ACTIONS.POP_ROUTE,
-        route: route
+        tabKey: tabKey
     }
 }
 
