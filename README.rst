@@ -13,7 +13,6 @@ Welcome to **React Native Examples**: A Repository that hopes to provide some in
 
 * **Redux Remote Dev Tools**
 
-
 Prerequisites
 =============
 
@@ -88,6 +87,18 @@ Navigation
 
    ``NavigationExperimental`` will allow you to build more complex, platform agnostic navigation structures.  Having said this, aside from `a few articles`_, some `excellent repositories`_ and the React Native UI Explorer's examples, ``NavigationExperimental``'s documentation is sparse, and it's API is actively being developed which means you have to pay attention to the RN development process and code accordingly.
    Having said this, ``NavigationExperimental`` is great and the above should not deter you from working with it, which is why I made this repo.  Hopefully, you can take some points from here or build upon this example.
+
+**What functionality is in the demo?**
+
+- Tabbar
+- Navigation Actions:  push, jumpToTab, reset tab stack
+
+TO DO
+=====
+
+- NavigationHeader
+- Back/Pop Actions
+- Modals
 
 
 .. _`a few articles`: https://medium.com/@dabit3/first-look-react-native-navigator-experimental-9a7cf39a615b#.vanf1kcmh
