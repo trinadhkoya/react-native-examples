@@ -42,7 +42,7 @@ class ModalScreenAlert extends Component {
                     accessibilityTraits="button"
                     onPress={ () => { this._onPress() } }
                     style={styles.buttonContainer} >
-                    <Text>Close</Text>
+                    <Text style={styles.closeButton}>Close</Text>
                 </RNETouchable>
 
             </View>
@@ -65,8 +65,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: STYLES.COLORS.TUMBLEWEED_BROWN,
+        backgroundColor: STYLES.COLORS.BLACK_TRANSPARENT,
     },
+    closeButton: {
+        color: STYLES.COLORS.WHITE,
+    }
 });
 
 // ========================================================

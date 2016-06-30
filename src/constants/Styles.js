@@ -5,4 +5,5 @@ export const COLORS = {
     TUMBLEWEED_BROWN :  'rgb(218, 173, 134)', // #DAAD86 - Swiper Screen
     BALTIC_SEA_BLUE  :  'rgb(49, 44, 50)',    // #312C32 - Profile Screen
     WHITE            :  'rgb(255, 255, 255)', // #FFFFFF
+    BLACK_TRANSPARENT:  'rgba(0,0,0,.5)',     // pageSheet modal background color
 }
