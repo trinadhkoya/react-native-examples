@@ -40,9 +40,10 @@ export const selectTab = (tabKey) => {
     }
 }
 
-export const toggleModal = (modalKey) => {
+export const toggleModal = (modalKey, modalViewStyle=NAV.MODAL_VIEW_STYLES.FULL_SCREEN) => {
     return {
         type: ACTIONS.TOGGLE_MODAL,
         modalKey: modalKey,
+        modalViewStyle: modalViewStyle
     }
 }

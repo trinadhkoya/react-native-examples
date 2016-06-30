@@ -16,8 +16,9 @@ import {
 } from 'react-native';
 
 // first party
-import { STYLES } from '../../constants/constants';
+import { STYLES, NAV } from '../../constants/constants';
 import ModalScreen from '../tabs/modal/ModalScreen';
+import ModalScreenAlert from '../tabs/modal/ModalScreenAlert';
 
 // ========================================================
 // Component
@@ -30,11 +31,13 @@ class Modal extends Component {
 
         this.modalAnimationStyles.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.animateFullScreenModal = this.animateFullScreenModal.bind(this);
+        this.animatePageSheetModal = this.animatePageSheetModal.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        isPrevModalActive = this.props.navigationState.modal.isModalActive === true
-        isNextModalActive = nextProps.navigationState.modal.isModalActive === true
+        const isPrevModalActive = this.props.navigationState.modal.isModalActive === true
+        const isNextModalActive = nextProps.navigationState.modal.isModalActive === true
 
         if ( !isPrevModalActive && isNextModalActive || isPrevModalActive && !isNextModalActive ) {
             this.toggleModal(isNextModalActive);
@@ -46,6 +49,7 @@ class Modal extends Component {
 
         const MODALS = {
             ModalScreen: ModalScreen,
+            ModalScreenAlert: ModalScreenAlert,
         }
 
         let Component = MODALS[navigationState.modal.modalKey];
@@ -65,6 +69,33 @@ class Modal extends Component {
     }
 
     toggleModal(isActive) {
+        const modalViewStyle = this.props.navigationState.modal.modalViewStyle;
+
+        switch(modalViewStyle) {
+            case NAV.MODAL_VIEW_STYLES.PAGE_SHEET:
+                return this.animatePageSheetModal(isActive);
+            default:
+                return this.animateFullScreenModal(isActive);
+        }
+    }
+
+    animateFullScreenModal(isActive) {
+        const { navigationState } = this.props;
+
+        let initialValue = isActive ? 0 : Dimensions.get('window').height;
+        let finalValue   = isActive ? Dimensions.get('window').height : 0;
+
+        this.props.navigationState.modal.animation.setValue(initialValue);
+
+        Animated.spring(
+            this.props.navigationState.modal.animation,
+            {
+                toValue: finalValue,
+            }
+        ).start();
+    }
+
+    animatePageSheetModal(isActive) {
         const { navigationState } = this.props;
 
         let initialValue = isActive ? 0 : Dimensions.get('window').height;

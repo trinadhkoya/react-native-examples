@@ -19,6 +19,7 @@ const initialState =  {
         isModalActive: false,
         animation: new Animated.Value(0),
         modalKey: NAV.MODALS.MODAL_SCREEN,
+        modalViewStyle: NAV.MODAL_VIEW_STYLES.FULL_SCREEN // fullscreen || pagesheet
     },
     // Three tabs.
     tabs: {
@@ -153,6 +154,7 @@ function NavigationReducer(state = initialState, action) {
                     ...state.modal,
                     isModalActive: !state.modal.isModalActive,
                     modalKey: action.modalKey,
+                    modalViewStyle: action.modalViewStyle,
                 }
             }
         }

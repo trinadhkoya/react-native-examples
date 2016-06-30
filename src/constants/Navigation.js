@@ -18,6 +18,12 @@ export const TAB = {
 
 export const MODALS = {
     MODAL_SCREEN: 'ModalScreen',
+    MODAL_SCREEN_ALERT: 'ModalScreenAlert'
+}
+
+export const MODAL_VIEW_STYLES = {
+    PAGE_SHEET: 'PAGE_SHEET',
+    FULL_SCREEN: 'FULL_SCREEN',
 }
 
 export const TAB_SCENE = {

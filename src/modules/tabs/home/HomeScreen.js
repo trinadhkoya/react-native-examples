@@ -28,6 +28,7 @@ class HomeScreen extends Component {
         super(props);
 
         this._handleHomeScreenClick = this._handleHomeScreenClick.bind(this);
+        this._handleAlertModalClick = this._handleAlertModalClick.bind(this);
     }
 
     render() {
@@ -41,9 +42,15 @@ class HomeScreen extends Component {
                 <RNETouchable
                     accessibilityTraits="button"
                     onPress={this._handleHomeScreenClick}
-                    style={styles.button}
-                >
+                    style={styles.button}>
                     <Text style={styles.buttonText}>Navigate To HomeScreen 2</Text>
+                </RNETouchable>
+
+                <RNETouchable
+                    accessibilityTraits="button"
+                    onPress={this._handleAlertModalClick}
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>Open Alert Modal</Text>
                 </RNETouchable>
             </View>
         );
@@ -53,6 +60,12 @@ class HomeScreen extends Component {
         const { onNavigate } = this.props;
 
         onNavigate(NavActions.pushRoute(NAV.HOME_ROUTES.HOME_TWO, {}));
+    }
+
+    _handleAlertModalClick() {
+        const { onNavigate } = this.props;
+
+        onNavigate(NavActions.toggleModal(NAV.MODALS.MODAL_SCREEN_ALERT, NAV.MODAL_VIEW_STYLES.PAGE_SHEET));
     }
 }
 
