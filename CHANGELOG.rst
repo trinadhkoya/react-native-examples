@@ -4,6 +4,14 @@ Change Log
 
 All enhancements to React-Native-Examples will be documented in this file. This project adheres to `Semantic Versioning`_.
 
+[2016-06-30]
+============
+
+**ADDED**
+
+* Modals - two types: fullscreen and pagesheet.  These demo handling different types of modals.
+
+
 [2016-06-29]
 ============
 

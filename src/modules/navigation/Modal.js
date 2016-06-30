@@ -36,16 +36,19 @@ class Modal extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const isPrevModalActive = this.props.navigationState.modal.isModalActive === true
-        const isNextModalActive = nextProps.navigationState.modal.isModalActive === true
+        const isPrevModalActive = this.props.navigationState.modal.isModalActive === true;
+        const isNextModalActive = nextProps.navigationState.modal.isModalActive === true;
+        const nextModalViewStyle = nextProps.navigationState.modal.modalViewStyle;
 
         if ( !isPrevModalActive && isNextModalActive || isPrevModalActive && !isNextModalActive ) {
-            this.toggleModal(isNextModalActive);
+            this.toggleModal(isNextModalActive, nextModalViewStyle);
         }
     }
 
     render() {
         const { navigationState, onNavigate, scene } = this.props;
+        const isFullScreen = navigationState.modal.modalViewStyle === NAV.MODAL_VIEW_STYLES.FULL_SCREEN;
+
 
         const MODALS = {
             ModalScreen: ModalScreen,
@@ -68,9 +71,7 @@ class Modal extends Component {
         }
     }
 
-    toggleModal(isActive) {
-        const modalViewStyle = this.props.navigationState.modal.modalViewStyle;
-
+    toggleModal(isActive, modalViewStyle) {
         switch(modalViewStyle) {
             case NAV.MODAL_VIEW_STYLES.PAGE_SHEET:
                 return this.animatePageSheetModal(isActive);
@@ -103,10 +104,11 @@ class Modal extends Component {
 
         this.props.navigationState.modal.animation.setValue(initialValue);
 
-        Animated.spring(
+        Animated.timing(
             this.props.navigationState.modal.animation,
             {
                 toValue: finalValue,
+                duration: 0,
             }
         ).start();
     }
@@ -123,7 +125,6 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         overflow: 'hidden', // makes it so the aimation dispears instead of lingers
-        backgroundColor: STYLES.COLORS.WHITE,
         width: Dimensions.get('window').width,
     },
 });
