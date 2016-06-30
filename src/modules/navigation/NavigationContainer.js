@@ -18,10 +18,6 @@ import {
 const {
     Transitioner: NavigationTransitioner,
     Card: NavigationCard,
-    CardStack: NavigationCardStack,
-    Header: NavigationHeader,
-    PropTypes: NavigationPropTypes,
-    StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
 
 // third party

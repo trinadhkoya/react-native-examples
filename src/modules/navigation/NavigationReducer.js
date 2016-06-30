@@ -8,9 +8,6 @@
 import { NavigationExperimental, Animated } from 'react-native'
 
 const {
-    CardStack: NavigationCardStack,
-    Header: NavigationHeader,
-    PropTypes: NavigationPropTypes,
     StateUtils: NavigationStateUtils,
 } = NavigationExperimental;
 
@@ -18,12 +15,12 @@ const {
 import { NAV, ICONS, ACTIONS } from '../../constants/constants';
 
 const initialState =  {
-    // Three tabs.
      modal: {
         isModalActive: false,
         animation: new Animated.Value(0),
         modalKey: NAV.MODALS.MODAL_SCREEN,
     },
+    // Three tabs.
     tabs: {
         index: 0,
         key: 'root',
