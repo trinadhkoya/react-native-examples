@@ -181,7 +181,6 @@ Navigation
 
 TO DO
 =====
-- Modals
 - Documentation explaining NavigationExperimental and the choices made in this project
 
 
