@@ -11,7 +11,7 @@ import { ACTIONS, NAV } from '../../constants/constants';
 // Action Creators
 // ========================================================
 
-export const pushRoute = (route, { animation=NAV.HORIZONTAL }) => {
+export const pushRoute = (route, { animation = NAV.HORIZONTAL }) => {
     return {
         type: ACTIONS.PUSH_ROUTE,
         route: route,
@@ -40,7 +40,7 @@ export const selectTab = (tabKey) => {
     }
 }
 
-export const toggleModal = (modalKey, modalViewStyle=NAV.MODAL_VIEW_STYLES.FULL_SCREEN) => {
+export const toggleModal = (modalKey, modalViewStyle = NAV.MODAL_VIEW_STYLES.FULL_SCREEN) => {
     return {
         type: ACTIONS.TOGGLE_MODAL,
         modalKey: modalKey,

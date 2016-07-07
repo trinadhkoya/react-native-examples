@@ -2,6 +2,10 @@
 React Native Examples
 *********************
 
+**WARNING**
+this demo will work on ``RN 28`` but nothing greater than ``RN 28``.  I will provide an update that will illustrate the difference bettween the RN 28 & RN 29 ``NavigationExperimental`` API.
+**WARNING**
+
 Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  Check it out:
 
 
