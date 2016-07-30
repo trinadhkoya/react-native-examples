@@ -41,7 +41,7 @@ class NavigationContainer extends Component {
     constructor(props) {
         super(props)
 
-        this._renderCard = this._renderCard.bind(this);
+        this._renderCardStack = this._renderCardStack.bind(this);
         this._renderScene = this._renderScene.bind(this);
         this._renderOverlay = this._renderOverlay.bind(this);
     }
