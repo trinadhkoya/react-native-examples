@@ -32,7 +32,7 @@ const NavigationModalButton = (props) => (
 function _onPress(props) {
     const tabKey = props.navigationState.key;
 
-    props.onNavigate(NavActions.toggleModal(NAV.MODALS.MODAL_SCREEN));
+    props.onNavigateBack(NavActions.toggleModal(NAV.MODALS.MODAL_SCREEN));
 }
 
 // ========================================================
