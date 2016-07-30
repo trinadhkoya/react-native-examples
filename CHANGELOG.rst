@@ -7,6 +7,14 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 [2016-06-30]
 ============
 
+**UPDATED**
+
+* README - removed the outdated warning.  added disclaimer letting developers know this is based on RN-30.
+
+
+[2016-06-30]
+============
+
 **ADDED**
 
 * Modals - two types: fullscreen and pagesheet.  These demo handling different types of modals.
