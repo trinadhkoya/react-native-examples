@@ -9,7 +9,8 @@ All enhancements to React-Native-Examples will be documented in this file. This 
 
 **UPDATED**
 
-* DEPENDENCIES - React-Native + Templates upgraded to 30.
+* DEPENDENCIES - React --> upgraded to 15.2.0
+* DEPENDENCIES - React-Native + Templates --> upgraded to 30.
 * README - removed the outdated warning.  added disclaimer letting developers know this is based on RN-30.
 
 
