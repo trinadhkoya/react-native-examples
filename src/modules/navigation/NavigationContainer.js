@@ -57,10 +57,10 @@ class NavigationContainer extends Component {
             <View style={styles.container}>
 
                 <NavigationTransitioner
-                    key={'stack_' + tabKey}
+                    navigationState={scenes}
+                    // key={'stack_' + tabKey}
                     configureTransition={ () => { return configTransition }}
                     // onNavigate={this.props.onNavigate}
-                    navigationState={scenes}
                     renderOverlay={this._renderOverlay}
                     renderScene={this._renderCard}
                     style={styles.navigationCardStack}
