@@ -17,6 +17,7 @@ import {
 
 const {
     Transitioner: NavigationTransitioner,
+    CardStack: NavigationCardStack,
     Card: NavigationCard,
 } = NavigationExperimental;
 
@@ -60,7 +61,7 @@ class NavigationContainer extends Component {
                     navigationState={scenes}
                     style={styles.navigationCardStack}
                     configureTransition={ () => { return configTransition }}
-                    render={this._renderCard}
+                    render={this._renderCardStack}
                     // key={'stack_' + tabKey}
                     // onNavigate={this.props.onNavigate}
                     // renderOverlay={this._renderOverlay}
@@ -86,7 +87,7 @@ class NavigationContainer extends Component {
 
         // hide navigationBar
         if (!showNavigationBar) {
-            return this._renderCard(sceneProps);
+            return this._renderCardStack(sceneProps);
         }
 
         return (
@@ -94,17 +95,16 @@ class NavigationContainer extends Component {
         )
     }
 
-    _renderCard(sceneProps) {
-        const animation = sceneProps.navigationState.animation;
-        const isModal = animation === NAV.VERTICAL;
-        const horizontalAnimation = undefined;
-        const verticalAnimation = NavigationCard.CardStackStyleInterpolator.forVertical(sceneProps);
-        const cardStyle = isModal ? verticalAnimation : horizontalAnimation;
+    _renderCardStack(sceneProps) {
+        // const animation = sceneProps.navigationState.animation;
+        // const isModal = animation === NAV.VERTICAL;
+        // const horizontalAnimation = undefined;
+        // const verticalAnimation = NavigationCard.CardStackStyleInterpolator.forVertical(sceneProps);
+        // const cardStyle = isModal ? verticalAnimation : horizontalAnimation;
 
         return (
-            <NavigationCard
+            <NavigationCardStack
                 {...sceneProps}
-                style={cardStyle}
                 key={sceneProps.scene.route.key}
                 renderScene={this._renderScene}
             />
