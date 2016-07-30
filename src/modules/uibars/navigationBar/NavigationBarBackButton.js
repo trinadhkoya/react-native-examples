@@ -32,7 +32,7 @@ const NavigationBarBackButton = (props) => (
 function _onPress(props) {
     const tabKey = props.navigationState.key
 
-    props.onNavigate(NavActions.popRoute(tabKey));
+    props.onNavigateBack(NavActions.popRoute(tabKey));
 }
 
 // ========================================================

@@ -41,6 +41,7 @@ class NavigationBar extends Component {
             <NavigationHeader
                 {...this.props}
                 style={styles.container}
+                onNavigateBack={this.props.onNavigate}
                 renderLeftComponent={this._renderLeftComponent}
                 renderTitleComponent={this._renderTitleComponent}
                 renderRightComponent={this._renderRightComponent}

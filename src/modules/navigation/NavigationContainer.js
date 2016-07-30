@@ -108,7 +108,10 @@ class NavigationContainer extends Component {
         }
 
         return (
-            <NavigationBar {...sceneProps} />
+            <NavigationBar
+                {...sceneProps}
+                onNavigate={this.props.onNavigate}
+            />
         )
     }
 
@@ -117,6 +120,7 @@ class NavigationContainer extends Component {
             <Scene
                 {...sceneProps}
                 key={sceneProps.scene.route.key}
+                onNavigate={this.props.onNavigate}
             />
         )
     }
