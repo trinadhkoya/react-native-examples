@@ -82,19 +82,6 @@ class NavigationContainer extends Component {
         );
     }
 
-    _renderOverlay(sceneProps) {
-        const showNavigationBar = sceneProps.scene.route.navigationBar;
-
-        // hide navigationBar
-        if (!showNavigationBar) {
-            return this._renderCardStack(sceneProps);
-        }
-
-        return (
-            <NavigationBar {...sceneProps} />
-        )
-    }
-
     _renderCardStack(sceneProps) {
         // const animation = sceneProps.navigationState.animation;
         // const isModal = animation === NAV.VERTICAL;
@@ -106,8 +93,22 @@ class NavigationContainer extends Component {
             <NavigationCardStack
                 {...sceneProps}
                 key={sceneProps.scene.route.key}
+                renderOverlay={this._renderOverlay}
                 renderScene={this._renderScene}
             />
+        )
+    }
+
+    _renderOverlay(sceneProps) {
+        const showNavigationBar = sceneProps.scene.route.navigationBar;
+
+        // hide navigationBar
+        if (!showNavigationBar) {
+            return this._renderCardStack(sceneProps);
+        }
+
+        return (
+            <NavigationBar {...sceneProps} />
         )
     }
 
