@@ -14,11 +14,8 @@ import {
   NavigationExperimental,
 } from 'react-native';
 
-
 const {
     Transitioner: NavigationTransitioner,
-    CardStack: NavigationCardStack,
-    Card: NavigationCard,
 } = NavigationExperimental;
 
 // third party
@@ -27,6 +24,7 @@ import { connect } from 'react-redux';
 // first party
 import { ACTIONS, NAV } from '../../constants/constants';
 import * as NavActions from '../navigation/NavigationActions';
+import CustomNavigationCardStack from './CustomNavigationCardStack';
 import Scene from './Scene';
 import NavigationDock from './NavigationDock';
 import NavigationBar from './NavigationBar';
@@ -41,7 +39,6 @@ class NavigationContainer extends Component {
     constructor(props) {
         super(props)
 
-        this._renderCardStack = this._renderCardStack.bind(this);
         this._renderScene = this._renderScene.bind(this);
         this._renderOverlay = this._renderOverlay.bind(this);
     }
@@ -52,19 +49,18 @@ class NavigationContainer extends Component {
         const { tabs } = navigationState;
         const tabKey = tabs.routes[tabs.index].key;
         const scenes = navigationState[tabKey];
-        const configTransition = { duration: scenes.animation === 'reset' ? 0 : 250 };
+        const configTransition = scenes.animation === 'reset' ? 0 : 250;
 
         return (
             <View style={styles.container}>
 
-                <NavigationTransitioner
+                <CustomNavigationCardStack
+                    key={'tab_' + tabKey}
+                    animation_duration={configTransition}
+                    onNavigateBack={this.props.onNavigate}
                     navigationState={scenes}
-                    style={styles.navigationCardStack}
-                    configureTransition={ () => { return configTransition }}
-                    render={this._renderCardStack}
-                    // key={'stack_' + tabKey}
-                    // onNavigate={this.props.onNavigate}
-                    // renderOverlay={this._renderOverlay}
+                    renderOverlay={this._renderOverlay}
+                    renderScene={this._renderScene}
                 />
 
                 <NavigationDock
@@ -82,29 +78,11 @@ class NavigationContainer extends Component {
         );
     }
 
-    _renderCardStack(sceneProps) {
-        // const animation = sceneProps.navigationState.animation;
-        // const isModal = animation === NAV.VERTICAL;
-        // const horizontalAnimation = undefined;
-        // const verticalAnimation = NavigationCard.CardStackStyleInterpolator.forVertical(sceneProps);
-        // const cardStyle = isModal ? verticalAnimation : horizontalAnimation;
-
-        return (
-            <NavigationCardStack
-                {...sceneProps}
-                key={sceneProps.scene.route.key}
-                renderOverlay={this._renderOverlay}
-                renderScene={this._renderScene}
-            />
-        )
-    }
-
     _renderOverlay(sceneProps) {
         const showNavigationBar = sceneProps.scene.route.navigationBar;
 
-        // hide navigationBar
         if (!showNavigationBar) {
-            return this._renderCardStack(sceneProps);
+            return null;
         }
 
         return (
