@@ -1,6 +1,6 @@
-import * as ACTIONS from './actionTypes';
-import * as NAV from './navigation';
-import * as STYLES from './styles';
+import * as ACTIONS from './ActionTypes';
+import * as NAV from './Navigation';
+import * as STYLES from './Styles';
 import * as ICONS from './icons';
 
 export {
