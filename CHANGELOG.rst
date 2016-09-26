@@ -4,6 +4,17 @@ Change Log
 
 All enhancements to React-Native-Examples will be documented in this file. This project adheres to `Semantic Versioning`_.
 
+[2016-09-26]
+============
+
+**UPDATED**
+
+* DEPENDENCIES - React --> upgraded to 15.3.1
+* DEPENDENCIES - React-Native + Templates --> upgraded to 34.
+* README - updated disclaimer letting developers know this is based on RN-34.
+* NEW BRANCH - new branch called ``RN-30`` show the code as it exists for RN-30 implementation
+* CustomNavigationCardStack - updated to reflect changes made in last 4 RN updates
+
 [2016-06-30]
 ============
 
