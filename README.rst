@@ -2,7 +2,7 @@
 React Native Examples
 *********************
 
-Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  Development will always attempt to be based on the latest current version of React-Native - **30** - at the time of this writing.
+Welcome to **React Native Examples**.  This Repository aims to provide some insight into building some of the more interesting aspects of React-Native.  Development will always attempt to be based on the latest current version of React-Native - **34** - at the time of this writing.
 
 
 +---------------------------------------------------------+----------------------------------------------------------------+
