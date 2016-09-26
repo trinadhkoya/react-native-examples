@@ -39,8 +39,8 @@ class NavigationContainer extends Component {
     constructor(props) {
         super(props)
 
-        this._renderScene = this._renderScene.bind(this);
-        this._renderOverlay = this._renderOverlay.bind(this);
+        this._renderScene  = this._renderScene.bind(this);
+        this._renderHeader = this._renderHeader.bind(this);
     }
 
     render() {
@@ -59,7 +59,7 @@ class NavigationContainer extends Component {
                     animation_duration={configTransition}
                     onNavigateBack={this.props.onNavigate}
                     navigationState={scenes}
-                    renderOverlay={this._renderOverlay}
+                    renderHeader={this._renderHeader}
                     renderScene={this._renderScene}
                 />
 
@@ -78,7 +78,7 @@ class NavigationContainer extends Component {
         );
     }
 
-    _renderOverlay(sceneProps) {
+    _renderHeader(sceneProps) {
         const showNavigationBar = sceneProps.scene.route.navigationBar;
 
         if (!showNavigationBar) {
