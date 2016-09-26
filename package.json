@@ -7,7 +7,7 @@
     "remotedev": "remotedev --hostname=localhost --port=8000"
   },
   "dependencies": {
-    "react": "15.2.0",
+    "react": "15.3.1",
     "react-native": "^0.34.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
