@@ -145,6 +145,7 @@ function NavigationReducer(state = initialState, action) {
                     tabs: nextTabs,
                 }
             }
+            return state;
         }
 
         case ACTIONS.TOGGLE_MODAL: {
