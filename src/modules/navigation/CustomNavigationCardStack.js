@@ -26,7 +26,6 @@ const NavigationCardStackStyleInterpolator = require('NavigationCardStackStyleIn
 const NavigationCardStackPanResponder = require('NavigationCardStackPanResponder');
 const NavigationPropTypes = require('NavigationPropTypes');
 const React = require('React');
-const ReactComponentWithPureRenderMixin = require('react/lib/ReactComponentWithPureRenderMixin');
 const StyleSheet = require('StyleSheet');
 const View = require('View');
 
@@ -48,14 +47,6 @@ class CustomNavigationCardStack extends React.Component {
         this._renderScene = this._renderScene.bind(this);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return ReactComponentWithPureRenderMixin.shouldComponentUpdate.call(
-            this,
-            nextProps,
-            nextState
-        );
-    }
-
     render() {
 
         const configTransition = { duration: this.props.animation_duration };
@@ -72,10 +63,10 @@ class CustomNavigationCardStack extends React.Component {
 
     _render(props) {
         const {
-            renderOverlay
+            renderHeader
         } = this.props;
 
-        const overlay = renderOverlay && renderOverlay(props);
+        const header = renderHeader && renderHeader(props);
 
         const scenes = props.scenes.map(scene => this._renderScene({
             ...props,
@@ -89,7 +80,7 @@ class CustomNavigationCardStack extends React.Component {
                     style={styles.scenes}>
                     {scenes}
                 </View>
-                {overlay}
+                {header}
             </View>
         );
     }
@@ -107,9 +98,19 @@ class CustomNavigationCardStack extends React.Component {
             gestureResponseDistance: this.props.gestureResponseDistance,
         };
 
-        const panHandlers = isVertical ?
-            NavigationCardStackPanResponder.forVertical(panHandlersProps) :
-            NavigationCardStackPanResponder.forHorizontal(panHandlersProps);
+        let panHandlers = null;
+
+        if (this.props.enableGestures) {
+            const panHandlersProps = {
+                ...props,
+                onNavigateBack: this.props.onNavigateBack,
+                gestureResponseDistance: this.props.gestureResponseDistance,
+            };
+
+            panHandlers = isVertical ?
+                NavigationCardStackPanResponder.forVertical(panHandlersProps) :
+                NavigationCardStackPanResponder.forHorizontal(panHandlersProps);
+        }
 
         return (
             <NavigationCard
@@ -130,6 +131,7 @@ class CustomNavigationCardStack extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        flexDirection: 'column-reverse',
     },
     scenes: {
         flex: 1,
